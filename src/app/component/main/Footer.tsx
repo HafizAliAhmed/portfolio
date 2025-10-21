@@ -17,7 +17,7 @@ const Footer = () => {
           {/* Community Section */}
           <div className="min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
             <h2 className="font-bold text-lg mb-2">Community</h2>
-            <Link href="https://github.com/Ali-Ahmed999" target="_blank" aria-label="GitHub">
+            <Link href="https://github.com/HafizAliAhmed" target="_blank" aria-label="GitHub">
               <p className="flex items-center my-2 hover:text-gray-400">
                 <RxGithubLogo className="mr-2 hover:text-gray-500 text-xl sm:text-2xl" />
                 Github

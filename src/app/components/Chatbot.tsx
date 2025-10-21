@@ -104,7 +104,7 @@ const Chatbot: FC = () => {
             textColor: "#303235",
             text: "Crafted by",
             company: "Ali Ahmed",
-            companyLink: "https://github.com/Ali-Ahmed999",
+            companyLink: "https://github.com/HafizAliAhmed",
           },
         },
       }}

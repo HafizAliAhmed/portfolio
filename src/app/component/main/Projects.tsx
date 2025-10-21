@@ -84,7 +84,7 @@ const Projects = () => {
             description="Modern portfolio website showcasing projects with responsive design and smooth animations"
           />
           <div className="absolute top-2 left-2 z-10">
-            <Link href="https://github.com/Ali-Ahmed999" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/HafizAliAhmed" target="_blank" rel="noopener noreferrer">
               <RxGithubLogo className="text-2xl sm:text-3xl text-white hover:text-gray-400 cursor-pointer transition-colors" />
             </Link>
           </div>
@@ -103,7 +103,7 @@ const Projects = () => {
             description="Cloud-based photo management system with Cloudinary integration and optimized image delivery"
           />
           <div className="absolute top-2 left-2 z-10">
-            <Link href="https://github.com/Ali-Ahmed999/cloudinary-photo-gallery-app" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/HafizAliAhmed/cloudinary-photo-gallery-app" target="_blank" rel="noopener noreferrer">
               <RxGithubLogo className="text-2xl sm:text-3xl text-white hover:text-gray-400 cursor-pointer transition-colors" />
             </Link>
           </div>
@@ -122,7 +122,7 @@ const Projects = () => {
             description="Full-featured e-commerce platform with cart, checkout, and payment integration"
           />
           <div className="absolute top-2 left-2 z-10">
-            <Link href="https://github.com/Ali-Ahmed999" target="_blank" rel="noopener noreferrer">
+            <Link href="https://github.com/HafizAliAhmed" target="_blank" rel="noopener noreferrer">
               <RxGithubLogo className="text-2xl sm:text-3xl text-white hover:text-gray-400 cursor-pointer transition-colors" />
             </Link>
           </div>
@@ -145,7 +145,7 @@ const Projects = () => {
             Check out my GitHub for more projects, open-source contributions, and experimental AI implementations.
           </p>
           <Link 
-            href="https://github.com/Ali-Ahmed999" 
+            href="https://github.com/HafizAliAhmed" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold rounded-lg hover:scale-105 transition-transform text-sm sm:text-base"

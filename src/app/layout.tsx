@@ -93,7 +93,7 @@ export default function RootLayout({
     "sameAs": [
       "https://twitter.com/hafizaliahmed9",
       "https://www.linkedin.com/in/hafizaliahmed",
-      "https://github.com/Ali-Ahmed999",
+      "https://github.com/HafizAliAhmed",
       "https://medium.com/@hafizaliahmed2004"
     ],
     "worksFor": {

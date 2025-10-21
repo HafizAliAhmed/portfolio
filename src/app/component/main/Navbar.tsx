@@ -41,7 +41,7 @@ const Navbar = () => {
 
         {/* Social Icons */}
         <div className="flex flex-row gap-2 sm:gap-3 md:gap-4 min-w-[70px] sm:min-w-[100px] md:min-w-[200px] justify-end">
-          <Link href="https://github.com/Ali-Ahmed999" target="_blank" rel="noopener noreferrer" aria-label="GitHub - Hafiz Ali Ahmed">
+          <Link href="https://github.com/HafizAliAhmed" target="_blank" rel="noopener noreferrer" aria-label="GitHub - Hafiz Ali Ahmed">
             <RxGithubLogo className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 hover:text-gray-500 cursor-pointer transition-colors" />
           </Link>
           <Link href="https://www.linkedin.com/in/hafizaliahmed" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn - Hafiz Ali Ahmed">
