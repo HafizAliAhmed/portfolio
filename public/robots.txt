@@ -1,5 +1,5 @@
 # Hafiz Ali Ahmed - Agentic AI Developer Portfolio
-# https://hafiz-aliahmed-portfolio.vercel.app
+# https://hafizaliahmed.xyz
 
 User-agent: *
 Allow: /
@@ -8,7 +8,7 @@ Disallow: /_next/
 Disallow: /admin/
 
 # Sitemap
-Sitemap: https://hafiz-aliahmed-portfolio.vercel.app/sitemap.xml
+Sitemap: https://hafizaliahmed.xyz/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 0
