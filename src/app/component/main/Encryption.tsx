@@ -48,7 +48,7 @@ const Encryption = () => {
 
       <div className="absolute z-[20] bottom-[10px] px-[5px]">
         <div className="cursive text-[20px] font-medium text-center text-gray-300">
-          Building AI agents that think, decide, and act autonomously with OpenAI & LangChain
+          Building AI agents that think, decide, and act autonomously with OpenAI
         </div>
       </div>
 

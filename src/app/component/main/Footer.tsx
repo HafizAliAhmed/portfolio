@@ -98,7 +98,7 @@ const Footer = () => {
         {/* Footer Bottom Text */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-400 mb-2">
-            <strong>Hafiz Ali Ahmed</strong> - Agentic AI Developer | OpenAI Agent SDK | LangChain Expert
+            <strong>Hafiz Ali Ahmed</strong> - Agentic AI Developer | OpenAI Agent SDK
           </p>
           <p className="text-sm text-gray-400">
             Co-Founder at Functions Global | Educator at Governor Sindh GenAI Initiative

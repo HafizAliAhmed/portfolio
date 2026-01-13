@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { RxGithubLogo, RxLinkedinLogo, RxTwitterLogo, RxRocket } from "react-icons/rx";
 import { SiMedium } from "react-icons/si";
+import Image from "next/image";
 
 const Navbar = () => {
   return (
@@ -9,7 +10,13 @@ const Navbar = () => {
       <div className="w-full h-full flex items-center justify-between gap-2 sm:gap-4 m-auto max-w-[1920px]">
         {/* Navbar Title with Logo - Hidden on Mobile */}
         <div className="flex items-center gap-2 hidden lg:flex min-w-[200px]">
-          <RxRocket className="text-2xl md:text-3xl text-purple-500 transform -rotate-45" />
+          <Image
+            src="/portfoliopicture.png"
+            alt="Hafiz Ali Ahmed"
+            width={40}
+            height={40}
+            className="rounded-full border border-purple-500"
+          />
           <div className="flex flex-col">
             <span className="font-bold text-gray-300 text-[16px] md:text-[18px] leading-tight">
               Hafiz Ali Ahmed

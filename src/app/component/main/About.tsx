@@ -65,7 +65,7 @@ const About = () => {
               </h3>
               <div className="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  Today, I work hands-on with cutting-edge frameworks like <strong>OpenAI Agent SDK</strong>, <strong>LangChain</strong>, <strong>LangGraph2AI</strong>, <strong>n8n</strong>, and <strong>Anitn</strong>—architecting autonomous agents that bridge human creativity with machine intelligence.
+                  Today, I work hands-on with cutting-edge frameworks like <strong>OpenAI Agent SDK</strong> and <strong>n8n</strong>—architecting autonomous agents that bridge human creativity with machine intelligence.
                 </p>
                 <p>
                   I specialize in building <strong>AI Calling Agents</strong> and workflow automation systems that aren&apos;t just chatbots—they&apos;re intelligent systems that plan workflows, connect tools, make calls, and adapt based on outcomes.
@@ -115,7 +115,7 @@ const About = () => {
                 Let&apos;s Connect
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Whether you&apos;re exploring OpenAI&apos;s Agent SDK, building with LangChain ecosystems, or curious about autonomous systems—let&apos;s connect. The future of AI is being written right now, and I&apos;m excited to build it alongside forward-thinking creators and innovators.
+                Whether you&apos;re exploring OpenAI&apos;s Agent SDK, building with agentic workflows, or curious about autonomous systems—let&apos;s connect. The future of AI is being written right now, and I&apos;m excited to build it alongside forward-thinking creators and innovators.
               </p>
             </div>
           </motion.div>
@@ -136,11 +136,9 @@ const About = () => {
             <div className="flex flex-wrap justify-center gap-3">
               {[
                 "OpenAI Agent SDK",
-                "LangChain",
-                "LangGraph2AI",
                 "n8n Automation",
                 "AI Calling Agents",
-                "Anitn",
+
                 "Agentic AI",
                 "Autonomous Systems",
                 "Next.js",

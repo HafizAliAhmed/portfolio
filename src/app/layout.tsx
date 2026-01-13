@@ -4,63 +4,49 @@ import './globals.css';
 import Navbar from './component/main/Navbar';
 import StarsCanvas from './component/main/SarbackGroung';
 import Footer from './component/main/Footer';
-import Chatbot from './components/Chatbot';
-
-
+import { siteConfig } from '@/lib/siteConfig';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hafiz-aliahmed-portfolio.vercel.app'),
-  title: 'Hafiz Ali Ahmed | Agentic AI Developer & Educator | OpenAI Agent SDK & LangChain Expert',
-  description: 'Hafiz Ali Ahmed - Agentic AI Developer, Educator at Governor Sindh GenAI Initiative, and Co-Founder at Functions Global. Building autonomous AI systems with OpenAI Agent SDK, LangChain, LangGraph2AI. Mentoring 1,500+ students in AI development. Expert in Agentic AI, autonomous systems, and intelligent agents.',
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    shortcut: '/favicon-96x96.png',
+    apple: '/apple-touch-icon.png',
   },
-  keywords: [
-    'Hafiz Ali Ahmed',
-    'Agentic AI Developer',
-    'OpenAI Agent SDK',
-    'LangChain Developer',
-    'AI Educator Pakistan',
-    'Functions Global Co-Founder',
-    'Governor Sindh GenAI Initiative',
-    'Autonomous AI Systems',
-    'LangGraph2AI',
-    'AI Agent Development',
-    'Machine Learning Expert',
-    'Next.js Developer',
-    'Full Stack AI Developer',
-    'Artificial Intelligence Educator',
-    'OpenAI SDK Developer Pakistan'
-  ],
-  authors: [{ name: 'Hafiz Ali Ahmed' }],
-  creator: 'Hafiz Ali Ahmed',
-  publisher: 'Hafiz Ali Ahmed',
+  manifest: '/site.webmanifest',
+  keywords: [...siteConfig.keywords],
+  authors: [{ name: siteConfig.author.name }],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.author.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://hafiz-aliahmed-portfolio.vercel.app',
-    title: 'Hafiz Ali Ahmed | Agentic AI Developer & Educator',
-    description: 'Building autonomous AI systems with OpenAI Agent SDK and LangChain. Co-Founder at Functions Global, teaching 1,500+ students at Governor Sindh GenAI Initiative.',
-    siteName: 'Hafiz Ali Ahmed Portfolio',
+    url: siteConfig.url,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: `${siteConfig.name} Portfolio`,
     images: [
       {
-        url: '/portfoliopicture.png',
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Hafiz Ali Ahmed - Agentic AI Developer',
+        alt: `${siteConfig.name} - Agentic AI Developer`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hafiz Ali Ahmed | Agentic AI Developer',
-    description: 'Building the next generation of autonomous AI systems with OpenAI Agent SDK, LangChain, and LangGraph2AI',
-    creator: '@hafizaliahmed9',
-    images: ['/portfoliopicture.png'],
+    title: siteConfig.title,
+    description: siteConfig.description,
+    creator: siteConfig.social.twitter,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -74,7 +60,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: '1alNcP2wEdLG02v2GRF3lFf2eo0wfGuI_ZUcO6f4F8A',
+    google: siteConfig.googleVerification,
+  },
+  alternates: {
+    canonical: siteConfig.url,
   },
 }
 
@@ -86,18 +75,18 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Hafiz Ali Ahmed",
-    "alternateName": "Hafiz Ali Ahmed",
-    "jobTitle": "Agentic AI Developer & Educator",
-    "description": "Building autonomous AI systems with OpenAI Agent SDK, LangChain, and LangGraph2AI. Co-Founder at Functions Global, Educator at Governor Sindh GenAI Initiative.",
-    "url": "https://hafiz-aliahmed-portfolio.vercel.app",
-    "email": "hafizaliahmed2004@gmail.com",
-    "image": "https://hafiz-aliahmed-portfolio.vercel.app/portfoliopicture.png",
+    "name": siteConfig.author.name,
+    "alternateName": siteConfig.name,
+    "jobTitle": siteConfig.author.jobTitle,
+    "description": siteConfig.description,
+    "url": siteConfig.url,
+    "email": siteConfig.author.email,
+    "image": `${siteConfig.url}${siteConfig.ogImage}`,
     "sameAs": [
-      "https://twitter.com/hafizaliahmed9",
-      "https://www.linkedin.com/in/hafizaliahmed",
-      "https://github.com/HafizAliAhmed",
-      "https://medium.com/@hafizaliahmed2004"
+      siteConfig.social.twitterUrl,
+      siteConfig.social.linkedin,
+      siteConfig.social.github,
+      siteConfig.social.medium,
     ],
     "worksFor": {
       "@type": "Organization",
@@ -124,8 +113,24 @@ export default function RootLayout({
     ]
   };
 
+  // Website schema for better SEO
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": `${siteConfig.name} Portfolio`,
+    "url": siteConfig.url,
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": `${siteConfig.url}/?q={search_term_string}`,
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en">
+      <head>
+        <link rel="canonical" href={siteConfig.url} />
+      </head>
       <body
         className={`${inter.className} bg-[#030014] overflow-y-scroll overflow-x-hidden`}
       >
@@ -133,12 +138,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         <div className="canvas-container">
-        <StarsCanvas />
+          <StarsCanvas />
         </div>
         <Navbar />
         {children}
-        <Chatbot />
         <Footer />
       </body>
     </html>
