@@ -15,14 +15,14 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-80 py-20 px-5"
+      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-40 sm:pb-60 md:pb-80 py-20 px-4 sm:px-5 md:px-10"
     >
       <div className="w-full max-w-7xl mx-auto flex flex-col items-center justify-center gap-3">
         <SkillText />
 
         {/* AI & ML Skills Row - Featured */}
         <div className="w-full mb-8">
-          <h3 className="text-2xl md:text-3xl font-bold text-center mb-6">
+          <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-center mb-6">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               Agentic AI & Machine Learning
             </span>
@@ -48,7 +48,7 @@ const Skills = () => {
 
         {/* Full Stack Development Skills */}
         <div className="w-full mb-8">
-          <h3 className="text-xl md:text-2xl font-bold text-center mb-6 text-gray-300">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-center mb-6 text-gray-300">
             Full Stack Development
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-5">
@@ -72,7 +72,7 @@ const Skills = () => {
 
         {/* Frontend Skills Row */}
         <div className="w-full mb-6">
-          <h3 className="text-lg md:text-xl font-semibold text-center mb-4 text-gray-400">
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-center mb-4 text-gray-400">
             Frontend Technologies
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-5">

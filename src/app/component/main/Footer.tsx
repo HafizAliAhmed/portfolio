@@ -13,9 +13,9 @@ const Footer = () => {
   return (
     <footer className="w-full h-full text-gray-200 p-6 shadow-lg border shadow-[#2A0E61] bg-[#03441417] border-[#2A0E61] backdrop-blur-md">
       <div className="flex flex-col items-center justify-center mx-auto">
-        <div className="w-full flex flex-col sm:flex-row items-center justify-between sm:justify-around flex-wrap gap-6 sm:gap-8">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center sm:justify-around flex-wrap gap-6 sm:gap-8">
           {/* Community Section */}
-          <div className="min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
+          <div className="min-w-[180px] sm:min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
             <h2 className="font-bold text-lg mb-2">Community</h2>
             <Link href="https://github.com/HafizAliAhmed" target="_blank" aria-label="GitHub">
               <p className="flex items-center my-2 hover:text-gray-400">
@@ -36,7 +36,7 @@ const Footer = () => {
           </div>
 
           {/* Social Media Section */}
-          <div className="min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
+          <div className="min-w-[180px] sm:min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
             <h2 className="font-bold text-lg mb-2">Social Media</h2>
             <Link
               href="https://twitter.com/hafizaliahmed9"
@@ -98,13 +98,13 @@ const Footer = () => {
         {/* Footer Bottom Text */}
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-400 mb-2">
-            <strong>Hafiz Ali Ahmed</strong> - Agentic AI Developer | OpenAI Agent SDK
+            <strong>Hafiz Ali Ahmed</strong> — AI developer, educator, builder
           </p>
           <p className="text-sm text-gray-400">
-            Co-Founder at Functions Global | Educator at Governor Sindh GenAI Initiative
+            Co-Founder @ Functions Global &bull; Educator @ Governor Sindh GenAI Initiative
           </p>
           <p className="text-xs text-gray-500 mt-3">
-            &copy; 2025 Hafiz Ali Ahmed. All rights reserved. Building autonomous AI systems that think, decide, and act.
+            &copy; 2025 Hafiz Ali Ahmed. All rights reserved.
           </p>
         </div>
       </div>

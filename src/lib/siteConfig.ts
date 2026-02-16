@@ -10,7 +10,7 @@ export const siteConfig = {
     // Site metadata
     name: 'Hafiz Ali Ahmed',
     title: 'Hafiz Ali Ahmed | Agentic AI Developer & Educator',
-    description: 'Hafiz Ali Ahmed - Agentic AI Developer, Educator at Governor Sindh GenAI Initiative, and Co-Founder at Functions Global. Building autonomous AI systems with OpenAI Agent SDK.',
+    description: 'Hafiz Ali Ahmed. I make AI agents with OpenAI Agent SDK, teach 1500+ students at Governor Sindh GenAI Initiative, and co-founded Functions Global. Check out my projects.',
 
     // Author information
     author: {

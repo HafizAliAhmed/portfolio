@@ -7,17 +7,17 @@ import Image from "next/image";
 const Encryption = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen w-full h-full relative">
-      <div className="absolute w-auto top-[15%] sm:top-[25%] md:top-[10%] lg:top-[-5%] z-[5]">
+      <div className="absolute w-auto top-[10%] sm:top-[15%] md:top-[10%] lg:top-[-5%] z-[5]">
         <motion.div
           variants={slideInFromTop}
-          className="text-[30px] font-medium text-center text-gray-200 sm:text-[40px] md:text-[50px] lg:text-[60px]"
+          className="text-[24px] sm:text-[30px] md:text-[40px] lg:text-[50px] xl:text-[60px] font-medium text-center text-gray-200"
         >
-          Autonomous AI
+          AI Agents
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
             {" "}
-            &{" "}
+            That{" "}
           </span>
-          Intelligence
+          Do the Work
         </motion.div>
       </div>
 
@@ -41,14 +41,14 @@ const Encryption = () => {
 
         <div className="Welcome-box px-[10px] py-[2px] sm:px-[15px] sm:py-[4px] md:px-[40px] md:py-[10px] z-[20] border my-[10px] sm:my-[20px] border-[#7042f88b] opacity-[0.9]">
           <h1 className="Welcome-text text-[10px] sm:text-[12px] md:text-[20px]">
-            Agentic AI Systems
+            Not just talk. Results.
           </h1>
         </div>
       </div>
 
-      <div className="absolute z-[20] bottom-[10px] px-[5px]">
-        <div className="cursive text-[20px] font-medium text-center text-gray-300">
-          Building AI agents that think, decide, and act autonomously with OpenAI
+      <div className="absolute z-[20] bottom-[10px] px-4 sm:px-5">
+        <div className="cursive text-base sm:text-lg md:text-xl font-medium text-center text-gray-300">
+          My agents pick up the phone, pull data, send emails, and figure out what to do next. All on their own.
         </div>
       </div>
 

@@ -6,7 +6,7 @@ import { slideInFromLeft, slideInFromRight } from "../../../../utils/motion";
 
 const About = () => {
   return (
-    <section className="w-full py-20 px-5 md:px-20" id="about">
+    <section className="w-full py-20 px-4 sm:px-5 md:px-10 lg:px-20" id="about">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -17,23 +17,23 @@ const About = () => {
         >
           <motion.h2
             variants={slideInFromLeft(0.5)}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4"
           >
             About{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Hafiz Ali Ahmed
+              Me
             </span>
           </motion.h2>
           <motion.p
             variants={slideInFromLeft(0.7)}
             className="text-lg text-gray-400 max-w-3xl mx-auto"
           >
-            Building the Next Generation of Autonomous AI Systems
+            A quick intro, nothing fancy
           </motion.p>
         </motion.div>
 
         {/* Main Content */}
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Left Column - Professional Journey */}
           <motion.div
             initial="hidden"
@@ -44,31 +44,31 @@ const About = () => {
           >
             <div className="bg-[#0300145e] border border-[#7042f88b] rounded-lg p-6 backdrop-blur-md">
               <h3 className="text-2xl font-bold text-white mb-4">
-                My Journey
+                The Backstory
               </h3>
               <div className="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  I&apos;m <strong>Hafiz Ali Ahmed</strong>, an <strong>Agentic AI Developer</strong>, <strong>Educator</strong>, and <strong>Co-Founder of Functions Global</strong>—dedicated to creating intelligent systems that don&apos;t just respond to commands, but think ahead, make decisions, and take action independently.
+                  So I&apos;m <strong>Ali</strong>. Been coding since I was in college. Started with the usual web dev stuff, React, Next.js, building apps for clients. It paid the bills but something felt missing.
                 </p>
                 <p>
-                  My journey began in full-stack development, building user-centered web applications with React and Next.js. But I kept asking myself: <em>What if software could do more than execute—what if it could reason?</em>
+                  Then one day I saw a demo of an AI agent booking a restaurant reservation by itself. No human in the loop. That was it for me. I dropped everything else and went all in on <strong>agentic AI</strong>.
                 </p>
                 <p>
-                  That question led me to the frontier of <strong>Agentic AI</strong>.
+                  Best decision I ever made, honestly.
                 </p>
               </div>
             </div>
 
             <div className="bg-[#0300145e] border border-[#7042f88b] rounded-lg p-6 backdrop-blur-md">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Current Focus
+                Day to Day
               </h3>
               <div className="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  Today, I work hands-on with cutting-edge frameworks like <strong>OpenAI Agent SDK</strong> and <strong>n8n</strong>—architecting autonomous agents that bridge human creativity with machine intelligence.
+                  Most of my week goes into <strong>OpenAI Agent SDK</strong> and <strong>n8n</strong>. I wire up AI agents that do real stuff. Like, they can pick up the phone and call someone, pull data from three different APIs, send a follow-up email, all without me touching anything.
                 </p>
                 <p>
-                  I specialize in building <strong>AI Calling Agents</strong> and workflow automation systems that aren&apos;t just chatbots—they&apos;re intelligent systems that plan workflows, connect tools, make calls, and adapt based on outcomes.
+                  Not chatbots. Actual workers. They figure out the next step, do it, and move on.
                 </p>
               </div>
             </div>
@@ -84,38 +84,38 @@ const About = () => {
           >
             <div className="bg-[#0300145e] border border-[#7042f88b] rounded-lg p-6 backdrop-blur-md">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Education & Impact
+                Teaching Side
               </h3>
               <div className="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  As an educator at the <strong>Governor Sindh Initiative for GenAI, Web3, and Metaverse</strong>, I mentor over <strong>1,500 students and professionals</strong>, helping them transition from traditional coding to building AI agents capable of real-world decision-making.
+                  Every week I stand in front of a class at <strong>Governor Sindh Initiative for GenAI, Web3, and Metaverse</strong>. Over <strong>1,500 students</strong> so far. We start from scratch, basic Python, and by the end they&apos;re shipping their own AI agents. Some of them now build better stuff than I did when I started.
                 </p>
                 <p>
-                  Teaching isn&apos;t just about sharing knowledge—it&apos;s about shaping the ethical and practical future of AI development.
+                  Funny thing about teaching, it forces you to actually understand what you&apos;re talking about. Can&apos;t fake it when 30 people are staring at you waiting for an answer.
                 </p>
               </div>
             </div>
 
             <div className="bg-[#0300145e] border border-[#7042f88b] rounded-lg p-6 backdrop-blur-md">
               <h3 className="text-2xl font-bold text-white mb-4">
-                Vision & Philosophy
+                Why I Do This
               </h3>
               <div className="text-gray-300 space-y-4 leading-relaxed">
                 <p>
-                  <strong>Hafiz Ali Ahmed</strong> isn&apos;t just my name—it represents a commitment to innovation that scales. I believe the next phase of software development lies in <strong>collaborative intelligence</strong>: AI agents that work with us, not just for us.
+                  Look, AI isn&apos;t going to replace developers. But developers who know how to use AI? They&apos;ll run circles around everyone else. That&apos;s the bet I&apos;m making.
                 </p>
                 <p>
-                  Through research, experimentation, and community collaboration, I explore how Agentic AI can transform productivity, education, and how we build technology itself.
+                  I break things constantly. Half my GitHub is failed experiments. But every now and then something clicks and I go &quot;oh, THAT&apos;S how it should work.&quot; Those moments keep me going.
                 </p>
               </div>
             </div>
 
             <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-lg p-6 backdrop-blur-md">
               <h3 className="text-xl font-bold text-white mb-3">
-                Let&apos;s Connect
+                Say Hi
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Whether you&apos;re exploring OpenAI&apos;s Agent SDK, building with agentic workflows, or curious about autonomous systems—let&apos;s connect. The future of AI is being written right now, and I&apos;m excited to build it alongside forward-thinking creators and innovators.
+                Working on something with AI agents? Or just nerding out about this stuff? Drop me a message. I reply to pretty much everyone. Worst case we end up having a cool conversation.
               </p>
             </div>
           </motion.div>
@@ -131,7 +131,7 @@ const About = () => {
         >
           <div className="bg-[#0300145e] border border-[#7042f88b] rounded-lg p-8 backdrop-blur-md">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">
-              Core Technologies & Expertise
+              Stuff in My Toolbox
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {[
@@ -166,7 +166,7 @@ const About = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8"
         >
           <motion.div
             variants={slideInFromLeft(0.5)}

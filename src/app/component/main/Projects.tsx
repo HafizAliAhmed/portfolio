@@ -12,24 +12,24 @@ const Projects = () => {
     <div className="flex flex-col items-center justify-center py-20 px-5 md:px-10 relative" id="projects">
       {/* Section Header */}
       <div className="text-center mb-10 max-w-3xl">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-4">
-          Featured Projects
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-4">
+          Stuff I Built
         </h2>
-        <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-          Showcase of my work in AI development, full-stack applications, and modern web technologies.
-          Each project demonstrates practical implementation of cutting-edge tools and frameworks.
+        <p className="text-xs sm:text-sm md:text-base text-gray-400 leading-relaxed">
+          Real projects, not tutorials. Some worked great, some I&apos;d do differently now.
+          Either way, learned a ton from each one.
         </p>
       </div>
 
       {/* Full Stack Projects Section */}
       <div className="w-full max-w-7xl">
-        <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-center">
+        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 text-center">
           Full Stack Applications
         </h3>
         <p className="text-center text-gray-400 mb-8 text-sm sm:text-base">
-          Modern web applications built with Next.js, React, and TypeScript
+          Next.js, React, TypeScript. The usual suspects.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {projects.map((project) => (
             <article key={project.slug} className="relative flex flex-col items-center group">
               {/* Project Card */}
@@ -97,10 +97,10 @@ const Projects = () => {
       <div className="mt-16 text-center max-w-3xl">
         <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-lg p-8 backdrop-blur-md">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            Want to See More?
+            There&apos;s More
           </h3>
           <p className="text-gray-300 mb-6 text-sm sm:text-base">
-            Check out all my projects or visit GitHub for more open-source contributions and experimental AI implementations.
+            Got a bunch more on my GitHub. Some polished, some experimental. Poke around if you want, and ping me if something grabs your attention.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Link

@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md border-b border-[#7042f861] z-50 px-3 sm:px-4 md:px-10">
-      <div className="w-full h-full flex items-center justify-between gap-2 sm:gap-4 m-auto max-w-[1920px]">
+    <div className="w-full h-[65px] fixed top-0 shadow-lg shadow-[#2A0E61]/50 bg-[#03001417] backdrop-blur-md border-b border-[#7042f861] z-50 px-4 sm:px-6 md:px-10">
+      <div className="w-full h-full flex items-center justify-between gap-3 sm:gap-4 md:gap-6 m-auto max-w-[1920px]">
         {/* Navbar Title with Logo - Hidden on Mobile */}
         <div className="flex items-center gap-2 hidden lg:flex min-w-[200px]">
           <Image
@@ -33,15 +33,15 @@ const Navbar = () => {
 
         {/* Navbar Links */}
         <div className="flex justify-center items-center h-full flex-shrink">
-          <div className="flex items-center justify-between w-auto h-auto border border-[#7042f88b] bg-[#0300145e] backdrop-blur-sm px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full text-gray-200 gap-2 sm:gap-3 md:gap-6">
+          <div className="flex items-center justify-between w-auto h-auto border border-[#7042f88b] bg-[#0300145e] backdrop-blur-sm px-3 sm:px-4 md:px-6 py-1.5 sm:py-2 md:py-2.5 rounded-full text-gray-200 gap-3 sm:gap-4 md:gap-6">
             <Link href="#about-me">
-              <span className="cursor-pointer text-[11px] sm:text-xs md:text-sm lg:text-base hover:text-purple-400 transition-colors whitespace-nowrap">About</span>
+              <span className="cursor-pointer text-xs sm:text-sm md:text-base lg:text-lg hover:text-purple-400 transition-colors whitespace-nowrap">About</span>
             </Link>
             <Link href="#skills">
-              <span className="cursor-pointer text-[11px] sm:text-xs md:text-sm lg:text-base hover:text-purple-400 transition-colors whitespace-nowrap">Skills</span>
+              <span className="cursor-pointer text-xs sm:text-sm md:text-base lg:text-lg hover:text-purple-400 transition-colors whitespace-nowrap">Skills</span>
             </Link>
             <Link href="#projects">
-              <span className="cursor-pointer text-[11px] sm:text-xs md:text-sm lg:text-base hover:text-purple-400 transition-colors whitespace-nowrap">Projects</span>
+              <span className="cursor-pointer text-xs sm:text-sm md:text-base lg:text-lg hover:text-purple-400 transition-colors whitespace-nowrap">Projects</span>
             </Link>
           </div>
         </div>
