@@ -1,193 +1,251 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import { notFound } from 'next/navigation';
-import { projects, getProjectBySlug, getAllProjectSlugs } from '@/data/projects';
-import { siteConfig } from '@/lib/siteConfig';
-import { RxGithubLogo } from 'react-icons/rx';
-import { FiExternalLink, FiArrowLeft } from 'react-icons/fi';
+import { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { ArrowUpRight, ArrowLeft, Github } from "lucide-react";
+import {
+  projects,
+  getProjectBySlug,
+  getAllProjectSlugs,
+} from "@/data/projects";
+import { siteConfig } from "@/lib/siteConfig";
 
 interface PageProps {
-    params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 }
 
-// Generate static params for all projects
 export async function generateStaticParams() {
-    return getAllProjectSlugs().map((slug) => ({ slug }));
+  return getAllProjectSlugs().map((slug) => ({ slug }));
 }
 
-// Generate dynamic metadata for each project
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-    const { slug } = await params;
-    const project = getProjectBySlug(slug);
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) return { title: "Project Not Found" };
 
-    if (!project) {
-        return {
-            title: 'Project Not Found',
-        };
-    }
-
-    return {
-        title: `${project.title} | ${siteConfig.name}`,
-        description: project.description,
-        keywords: [...project.technologies, siteConfig.name, 'project', 'portfolio'],
-        openGraph: {
-            title: `${project.title} | ${siteConfig.name}`,
-            description: project.description,
-            url: `${siteConfig.url}/projects/${project.slug}`,
-            images: [
-                {
-                    url: project.image,
-                    width: 1200,
-                    height: 630,
-                    alt: project.title,
-                },
-            ],
+  return {
+    title: `${project.title} | ${siteConfig.name}`,
+    description: project.description,
+    keywords: [...project.technologies, siteConfig.name, "project", "case study"],
+    alternates: { canonical: `${siteConfig.url}/projects/${project.slug}` },
+    openGraph: {
+      title: `${project.title} | ${siteConfig.name}`,
+      description: project.description,
+      url: `${siteConfig.url}/projects/${project.slug}`,
+      images: [
+        {
+          url: project.image,
+          width: 1200,
+          height: 630,
+          alt: project.title,
         },
-        twitter: {
-            card: 'summary_large_image',
-            title: `${project.title} | ${siteConfig.name}`,
-            description: project.description,
-            images: [project.image],
-        },
-    };
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ${siteConfig.name}`,
+      description: project.description,
+      images: [project.image],
+    },
+  };
 }
 
 export default async function ProjectPage({ params }: PageProps) {
-    const { slug } = await params;
-    const project = getProjectBySlug(slug);
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) notFound();
 
-    if (!project) {
-        notFound();
-    }
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.description,
+    url: `${siteConfig.url}/projects/${project.slug}`,
+    image: `${siteConfig.url}${project.image}`,
+    author: {
+      "@type": "Person",
+      name: siteConfig.author.name,
+      url: siteConfig.url,
+    },
+    keywords: project.technologies.join(", "),
+  };
 
-    // Structured data for the project
-    const structuredData = {
-        '@context': 'https://schema.org',
-        '@type': 'CreativeWork',
-        name: project.title,
-        description: project.description,
-        url: `${siteConfig.url}/projects/${project.slug}`,
-        image: `${siteConfig.url}${project.image}`,
-        author: {
-            '@type': 'Person',
-            name: siteConfig.author.name,
-            url: siteConfig.url,
-        },
-        keywords: project.technologies.join(', '),
-    };
+  return (
+    <main className="bg-bg text-text-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
 
-    return (
-        <main className="min-h-screen py-20 px-5 md:px-10">
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-            />
+      {/* Header */}
+      <section className="relative pt-32 pb-12 lg:pt-40 overflow-hidden bg-noise">
+        <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-radial-glow" aria-hidden />
 
-            <div className="max-w-4xl mx-auto">
-                {/* Back Button */}
-                <Link
-                    href="/projects"
-                    className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
-                >
-                    <FiArrowLeft />
-                    Back to Projects
-                </Link>
+        <div className="relative max-w-container mx-auto px-5 lg:px-8">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" strokeWidth={1.6} />
+            All projects
+          </Link>
 
-                {/* Project Header */}
-                <header className="mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-4">
-                        {project.title}
-                    </h1>
-                    <p className="text-xl text-gray-300">{project.description}</p>
-                </header>
-
-                {/* Project Image */}
-                <div className="mb-12 rounded-lg overflow-hidden border border-[#7042f88b] relative aspect-video">
-                    <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                        priority
-                    />
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex flex-wrap gap-4 mb-12">
-                    <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold rounded-lg hover:scale-105 transition-transform"
-                    >
-                        <FiExternalLink />
-                        View Live Demo
-                    </a>
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-[#0300145e] border border-[#7042f88b] text-white rounded-lg hover:border-purple-500 transition-colors"
-                    >
-                        <RxGithubLogo className="text-xl" />
-                        View Source Code
-                    </a>
-                </div>
-
-                {/* Technologies */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-bold text-white mb-4">Technologies Used</h2>
-                    <div className="flex flex-wrap gap-3">
-                        {project.technologies.map((tech) => (
-                            <span
-                                key={tech}
-                                className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 rounded-full text-sm text-gray-200"
-                            >
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Long Description */}
-                <section className="mb-12">
-                    <h2 className="text-2xl font-bold text-white mb-4">About This Project</h2>
-                    <div className="bg-[#0300145e] border border-[#7042f88b] rounded-lg p-6">
-                        <div className="prose prose-invert max-w-none">
-                            {project.longDescription.split('\n\n').map((paragraph, index) => (
-                                <p key={index} className="text-gray-300 mb-4 leading-relaxed">
-                                    {paragraph}
-                                </p>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-
-                {/* More Projects */}
-                <section>
-                    <h2 className="text-2xl font-bold text-white mb-6">More Projects</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {projects
-                            .filter((p) => p.slug !== project.slug)
-                            .slice(0, 2)
-                            .map((p) => (
-                                <Link
-                                    key={p.slug}
-                                    href={`/projects/${p.slug}`}
-                                    className="group block bg-[#0300145e] border border-[#7042f88b] rounded-lg p-4 hover:border-purple-500 transition-colors"
-                                >
-                                    <h3 className="text-lg font-bold text-white group-hover:text-purple-400 transition-colors">
-                                        {p.title}
-                                    </h3>
-                                    <p className="text-gray-400 text-sm mt-2 line-clamp-2">
-                                        {p.description}
-                                    </p>
-                                </Link>
-                            ))}
-                    </div>
-                </section>
+          <div className="mt-10 max-w-4xl">
+            <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
+              <span className="tag tag-accent">
+                {project.category === "ai"
+                  ? "AI / Agents"
+                  : project.category === "fullstack"
+                  ? "Full-stack"
+                  : "Web"}
+              </span>
+              {project.featured && (
+                <>
+                  <span className="w-1 h-1 rounded-full bg-text-faint" />
+                  <span className="text-accent">Featured</span>
+                </>
+              )}
             </div>
-        </main>
-    );
+
+            <h1 className="mt-6 display-h1 text-balance">{project.title}</h1>
+            <p className="mt-6 lead">{project.description}</p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Visit live
+                  <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+                </a>
+              )}
+              {project.githubUrl && (
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                >
+                  <Github className="w-4 h-4" strokeWidth={1.6} />
+                  Source code
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Cover image */}
+      <section className="border-t border-border">
+        <div className="max-w-container mx-auto px-5 lg:px-8 py-12">
+          <div className="relative aspect-[16/9] rounded-lg border border-border overflow-hidden bg-bg-elevated">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              priority
+              sizes="(min-width: 1280px) 1200px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Tech */}
+      <section className="border-t border-border">
+        <div className="max-w-container mx-auto px-5 lg:px-8 py-16">
+          <div className="grid lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-4">
+              <div className="eyebrow">
+                <span className="dot" /> Stack
+              </div>
+              <h2 className="mt-5 display-h3">
+                Technologies <span className="display-italic text-text-secondary">used.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((t) => (
+                  <span key={t} className="tag">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Long description */}
+      <section className="border-t border-border">
+        <div className="max-w-container mx-auto px-5 lg:px-8 py-16">
+          <div className="grid lg:grid-cols-12 gap-10">
+            <div className="lg:col-span-4">
+              <div className="eyebrow">
+                <span className="dot" /> Overview
+              </div>
+              <h2 className="mt-5 display-h3">
+                About this <span className="display-italic text-text-secondary">project.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <div className="prose-blog">
+                {project.longDescription.split("\n\n").map((para, i) => (
+                  <p key={i}>{para.replace(/^- /gm, "• ")}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* More projects */}
+      <section className="border-t border-border">
+        <div className="max-w-container mx-auto px-5 lg:px-8 py-16">
+          <div className="flex items-end justify-between">
+            <div className="eyebrow">
+              <span className="dot" /> More work
+            </div>
+            <Link href="/projects" className="btn-ghost text-sm">
+              All projects
+              <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+            </Link>
+          </div>
+
+          <div className="mt-8 grid sm:grid-cols-2 gap-5">
+            {projects
+              .filter((p) => p.slug !== project.slug)
+              .slice(0, 2)
+              .map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/projects/${p.slug}`}
+                  className="card-feature group block p-7"
+                >
+                  <div className="text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
+                    {p.category === "ai" ? "AI / Agents" : p.category === "fullstack" ? "Full-stack" : "Web"}
+                  </div>
+                  <h3 className="mt-3 text-2xl font-medium tracking-tight text-text-primary group-hover:text-accent transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-text-secondary leading-relaxed line-clamp-2">
+                    {p.description}
+                  </p>
+                  <div className="mt-5 inline-flex items-center gap-1.5 text-sm text-text-primary">
+                    Open project
+                    <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

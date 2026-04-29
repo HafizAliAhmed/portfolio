@@ -70,7 +70,7 @@ This project was built during a hackathon and features:
 - **Product Management**: Dynamic product catalog with categories and search
 - **Responsive Design**: Mobile-first approach for shopping on any device
 - **Modern Architecture**: Built with Next.js, TypeScript, and Sanity CMS for content management`,
-        image: '/ecommerce.png',
+        image: '/SpaceWebsite.png',
         technologies: ['Next.js', 'React', 'TypeScript', 'Stripe', 'Sanity CMS', 'Tailwind CSS'],
         githubUrl: 'https://github.com/HafizAliAhmed',
         liveUrl: 'https://hackathon-beryl.vercel.app/',

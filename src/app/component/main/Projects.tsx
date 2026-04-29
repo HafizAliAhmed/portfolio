@@ -1,129 +1,130 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { projects } from "@/data/projects";
-import { RxGithubLogo } from "react-icons/rx";
-import { FiChevronRight, FiExternalLink } from "react-icons/fi";
+import { ArrowUpRight, Github } from "lucide-react";
+import { projects, type Project } from "@/data/projects";
 
-const Projects = () => {
+export default function Projects() {
+  // Use centralized projects data, fall back gracefully
+  const items: Project[] = projects?.length
+    ? projects
+    : [];
+
   return (
-    <div className="flex flex-col items-center justify-center py-20 px-5 md:px-10 relative" id="projects">
-      {/* Section Header */}
-      <div className="text-center mb-10 max-w-3xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-4">
-          Stuff I Built
-        </h2>
-        <p className="text-xs sm:text-sm md:text-base text-gray-400 leading-relaxed">
-          Real projects, not tutorials. Some worked great, some I&apos;d do differently now.
-          Either way, learned a ton from each one.
-        </p>
-      </div>
+    <section id="work" className="relative py-28 lg:py-36 border-t border-border">
+      <div className="max-w-container mx-auto px-5 lg:px-8">
+        {/* Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+          <div className="max-w-2xl">
+            <div className="eyebrow">
+              <span className="dot" /> 03 · Selected work
+            </div>
+            <h2 className="display-h2 mt-5 text-balance">
+              Things I&apos;ve{" "}
+              <span className="display-italic text-text-secondary">shipped.</span>
+            </h2>
+            <p className="mt-5 lead">
+              A snapshot of recent client work and personal builds. Most of my
+              client work is under NDA. Happy to share details on a call.
+            </p>
+          </div>
 
-      {/* Full Stack Projects Section */}
-      <div className="w-full max-w-7xl">
-        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 text-center">
-          Full Stack Applications
-        </h3>
-        <p className="text-center text-gray-400 mb-8 text-sm sm:text-base">
-          Next.js, React, TypeScript. The usual suspects.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
-          {projects.map((project) => (
-            <article key={project.slug} className="relative flex flex-col items-center group">
-              {/* Project Card */}
-              <Link
-                href={`/projects/${project.slug}`}
-                className="block w-full overflow-hidden rounded-lg shadow-lg shadow-[#2A0E61]/50 border border-[#2A0E61] hover:border-purple-500 transition-all duration-300"
-              >
-                <div className="relative aspect-video overflow-hidden bg-[#181825]">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-4 bg-[#0300145e]">
-                  <h4 className="text-lg sm:text-xl font-semibold text-white mb-2 group-hover:text-purple-400 transition-colors">
-                    {project.title}
-                  </h4>
-                  <p className="text-sm text-gray-400 line-clamp-2">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </Link>
+          <Link
+            href="/projects"
+            className="btn-secondary self-start lg:self-auto"
+          >
+            View archive
+            <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+          </Link>
+        </div>
 
-              {/* Action Icons */}
-              <div className="absolute top-2 left-2 z-10 flex gap-2">
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center p-2 bg-black/50 rounded-full hover:bg-black/70 transition-colors"
-                  aria-label={`View ${project.title} source code on GitHub`}
-                >
-                  <RxGithubLogo className="text-xl sm:text-2xl text-white hover:text-gray-400 cursor-pointer transition-colors" />
-                </a>
+        {/* Project list */}
+        <div className="mt-14 space-y-5">
+          {items.map((p, i) => (
+            <article
+              key={p.slug}
+              className="card-feature group grid lg:grid-cols-12 gap-6 lg:gap-10 p-6 lg:p-8"
+            >
+              {/* Image / preview */}
+              <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto rounded-md overflow-hidden border border-border bg-bg-elevated">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 100vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-bg/40 via-transparent to-transparent" />
               </div>
-              <div className="absolute top-2 right-2 z-10">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center p-2 bg-black/50 rounded-full hover:bg-black/70 transition-colors"
-                  aria-label={`View ${project.title} live demo`}
-                >
-                  <FiExternalLink className="text-xl sm:text-2xl text-white hover:text-gray-400 cursor-pointer transition-colors" />
-                </a>
+
+              {/* Content */}
+              <div className="lg:col-span-7 flex flex-col">
+                <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
+                  <span>/0{i + 1}</span>
+                  <span className="w-1 h-1 rounded-full bg-text-faint" />
+                  <span>{p.category === "ai" ? "AI / Agents" : p.category === "fullstack" ? "Full-stack" : "Web"}</span>
+                  {p.featured && (
+                    <>
+                      <span className="w-1 h-1 rounded-full bg-text-faint" />
+                      <span className="text-accent">Featured</span>
+                    </>
+                  )}
+                </div>
+
+                <h3 className="mt-4 text-3xl lg:text-4xl font-medium tracking-tight text-text-primary">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-text-secondary leading-relaxed">
+                  {p.description}
+                </p>
+
+                {/* Tech */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {p.technologies.slice(0, 6).map((t) => (
+                    <span key={t} className="tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="mt-auto pt-7 flex flex-wrap items-center gap-4">
+                  {p.liveUrl && (
+                    <Link
+                      href={p.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-text-primary hover:text-accent transition-colors"
+                    >
+                      Visit live
+                      <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+                    </Link>
+                  )}
+                  {p.githubUrl && (
+                    <Link
+                      href={p.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors"
+                    >
+                      <Github className="w-4 h-4" strokeWidth={1.6} />
+                      Source
+                    </Link>
+                  )}
+                  <Link
+                    href={`/projects/${p.slug}`}
+                    className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors ml-auto"
+                  >
+                    Case study
+                    <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+                  </Link>
+                </div>
               </div>
             </article>
           ))}
         </div>
       </div>
-
-      {/* Call to Action */}
-      <div className="mt-16 text-center max-w-3xl">
-        <div className="bg-gradient-to-r from-purple-500/10 to-cyan-500/10 border border-purple-500/30 rounded-lg p-8 backdrop-blur-md">
-          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-            There&apos;s More
-          </h3>
-          <p className="text-gray-300 mb-6 text-sm sm:text-base">
-            Got a bunch more on my GitHub. Some polished, some experimental. Poke around if you want, and ping me if something grabs your attention.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              href="/projects"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white font-semibold rounded-lg hover:scale-105 transition-transform text-sm sm:text-base"
-            >
-              View All Projects
-              <FiChevronRight className="text-lg sm:text-xl" />
-            </Link>
-            <a
-              href="https://github.com/HafizAliAhmed"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#0300145e] border border-[#7042f88b] text-white rounded-lg hover:border-purple-500 transition-colors text-sm sm:text-base"
-            >
-              <RxGithubLogo className="text-xl sm:text-2xl" />
-              GitHub Profile
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+    </section>
   );
-};
-
-export default Projects;
+}

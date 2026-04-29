@@ -1,115 +1,120 @@
-import React from "react";
-import { Phone, Mail, FileText } from "lucide-react"
-
 import Link from "next/link";
-import {
-  RxDiscordLogo,
-  RxGithubLogo,
-  RxTwitterLogo,
-  RxLinkedinLogo,
-} from "react-icons/rx";
-import { SiMedium } from "react-icons/si";
-const Footer = () => {
+import { ArrowUpRight } from "lucide-react";
+import { siteConfig } from "@/lib/siteConfig";
+
+const FOOTER_NAV = [
+  {
+    title: "Site",
+    links: [
+      { label: "About", href: "/#about" },
+      { label: "Services", href: "/#services" },
+      { label: "Work", href: "/#work" },
+      { label: "Stack", href: "/#stack" },
+      { label: "Blog", href: "/blog" },
+    ],
+  },
+  {
+    title: "Connect",
+    links: [
+      { label: "Email", href: `mailto:${siteConfig.author.email}` },
+      { label: "Book a call", href: siteConfig.bookingUrl },
+      { label: "X / Twitter", href: siteConfig.social.twitterUrl, external: true },
+      { label: "LinkedIn", href: siteConfig.social.linkedin, external: true },
+      { label: "GitHub", href: siteConfig.social.github, external: true },
+      { label: "Medium", href: siteConfig.social.medium, external: true },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "All projects", href: "/projects" },
+      { label: "All skills", href: "/skills" },
+      { label: "Sitemap", href: "/sitemap.xml" },
+      { label: "Privacy", href: "/privacy" },
+    ],
+  },
+];
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="w-full h-full text-gray-200 p-6 shadow-lg border shadow-[#2A0E61] bg-[#03441417] border-[#2A0E61] backdrop-blur-md">
-      <div className="flex flex-col items-center justify-center mx-auto">
-        <div className="w-full flex flex-col sm:flex-row items-center justify-center sm:justify-around flex-wrap gap-6 sm:gap-8">
-          {/* Community Section */}
-          <div className="min-w-[180px] sm:min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
-            <h2 className="font-bold text-lg mb-2">Community</h2>
-            <Link href="https://github.com/HafizAliAhmed" target="_blank" aria-label="GitHub">
-              <p className="flex items-center my-2 hover:text-gray-400">
-                <RxGithubLogo className="mr-2 hover:text-gray-500 text-xl sm:text-2xl" />
-                Github
-              </p>
+    <footer className="relative border-t border-border bg-bg-subtle">
+      <div className="max-w-container mx-auto px-5 lg:px-8 pt-20 pb-10">
+        {/* Top: wordmark + tagline */}
+        <div className="grid lg:grid-cols-12 gap-12 pb-16 border-b border-border">
+          <div className="lg:col-span-5">
+            <Link href="/" className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-accent text-on-accent font-display italic text-xl leading-none">
+                <span className="-mt-0.5">h.</span>
+              </span>
+              <span className="text-base font-medium tracking-tight text-text-primary">
+                hafizaliahmed<span className="text-text-muted">.xyz</span>
+              </span>
             </Link>
+            <p className="mt-6 max-w-md text-text-secondary leading-relaxed">
+              {siteConfig.author.name}. AI-native cloud architect, founder of{" "}
+              {siteConfig.author.company}. Building AI systems that ship in
+              production, not on slide decks.
+            </p>
             <Link
-              href="https://discord.com/channels/790484092772548613/1190583666548674570"
-              target="_blank"
-              aria-label="Discord"
+              href={siteConfig.bookingUrl}
+              className="mt-7 inline-flex items-center gap-1.5 text-text-primary hover:text-accent transition-colors"
             >
-              <p className="flex items-center my-2 hover:text-purple-800">
-                <RxDiscordLogo className="mr-2 hover:text-purple-800 text-xl sm:text-2xl" />
-                Discord
-              </p>
+              <span className="link-underline">Start a project</span>
+              <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
             </Link>
           </div>
 
-          {/* Social Media Section */}
-          <div className="min-w-[180px] sm:min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
-            <h2 className="font-bold text-lg mb-2">Social Media</h2>
-            <Link
-              href="https://twitter.com/hafizaliahmed9"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter - Hafiz Ali Ahmed"
-              className="flex items-center my-2 hover:text-gray-400"
-            >
-              <RxTwitterLogo className="mr-2 text-xl sm:text-2xl" />
-              Twitter
-            </Link>
-            <Link
-              href="https://www.linkedin.com/in/hafizaliahmed"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn - Hafiz Ali Ahmed"
-              className="flex items-center my-2 hover:text-blue-500"
-            >
-              <RxLinkedinLogo className="mr-2 text-xl sm:text-2xl" />
-              LinkedIn
-            </Link>
-            <Link
-              href="https://medium.com/@hafizaliahmed2004"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Medium - Hafiz Ali Ahmed"
-              className="flex items-center my-2 hover:text-green-500"
-            >
-              <SiMedium className="mr-2 text-xl sm:text-2xl" />
-              Medium
-            </Link>
-          </div>
-
-          {/* Contact Section */}
-          <div className="min-w-[200px] flex flex-col items-center mb-6 sm:mb-0">
-            <h2 className="font-bold text-lg mb-2">Contact</h2>
-            <Link
-              href="mailto:hafizaliahmed2004@gmail.com"
-              className="flex items-center my-2 hover:text-purple-400"
-              aria-label="Email Hafiz Ali Ahmed"
-            >
-              <Mail className="mr-2 text-lg" />
-              Email
-            </Link>
-            <Link
-              href="https://hafiz-aliahmed-portfolio.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center my-2 hover:text-purple-400"
-              aria-label="Portfolio Website"
-            >
-              <FileText className="mr-2 text-lg" />
-              Portfolio
-            </Link>
-            <p className="text-sm text-gray-400 mt-2 text-center">hafizaliahmed2004@gmail.com</p>
+          <div className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            {FOOTER_NAV.map((col) => (
+              <div key={col.title}>
+                <div className="font-mono text-xs uppercase tracking-[0.14em] text-text-muted">
+                  {col.title}
+                </div>
+                <ul className="mt-5 space-y-3">
+                  {col.links.map((l) => (
+                    <li key={l.label}>
+                      <Link
+                        href={l.href}
+                        target={"external" in l && l.external ? "_blank" : undefined}
+                        rel={"external" in l && l.external ? "noopener noreferrer" : undefined}
+                        className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Footer Bottom Text */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-400 mb-2">
-            <strong>Hafiz Ali Ahmed</strong> — AI developer, educator, builder
-          </p>
-          <p className="text-sm text-gray-400">
-            Co-Founder @ Functions Global &bull; Educator @ Governor Sindh GenAI Initiative
-          </p>
-          <p className="text-xs text-gray-500 mt-3">
-            &copy; 2025 Hafiz Ali Ahmed. All rights reserved.
-          </p>
+        {/* Big wordmark */}
+        <div className="py-12 select-none overflow-hidden">
+          <div className="text-[11vw] lg:text-[9vw] leading-[0.85] font-medium tracking-[-0.05em] text-text-primary/[0.06] text-center whitespace-nowrap">
+            hafizaliahmed.xyz
+          </div>
+        </div>
+
+        {/* Meta row */}
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
+          <div className="flex items-center gap-3">
+            <span>© {year} {siteConfig.author.name}</span>
+            <span className="w-1 h-1 rounded-full bg-text-faint" />
+            <span>All rights reserved</span>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="inline-flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_var(--accent-glow)]" />
+              Available for Q3 2026
+            </span>
+            <span className="w-1 h-1 rounded-full bg-text-faint" />
+            <span>Built with Next.js</span>
+          </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

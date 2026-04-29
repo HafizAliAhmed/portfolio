@@ -9,15 +9,23 @@ export const siteConfig = {
 
     // Site metadata
     name: 'Hafiz Ali Ahmed',
-    title: 'Hafiz Ali Ahmed | Agentic AI Developer & Educator',
-    description: 'Hafiz Ali Ahmed. I make AI agents with OpenAI Agent SDK, teach 1500+ students at Governor Sindh GenAI Initiative, and co-founded Functions Global. Check out my projects.',
+    title: 'Hafiz Ali Ahmed · AI-Native Cloud Architect & Founder',
+    description:
+        'Hafiz Ali Ahmed is an AI-native Cloud Architect and founder building production-grade AI agents, automation systems, and cloud platforms for ambitious teams and startups.',
+
+    // Short marketing line for hero / OG
+    tagline: 'I build AI systems that ship. Not demos.',
 
     // Author information
     author: {
         name: 'Hafiz Ali Ahmed',
         email: 'hafizaliahmed2004@gmail.com',
-        jobTitle: 'Agentic AI Developer & Educator',
+        jobTitle: 'AI-Native Cloud Architect & Founder',
+        company: 'Functions Global',
     },
+
+    // Booking / scheduling link (replace with your real Cal.com or Calendly)
+    bookingUrl: 'mailto:hafizaliahmed2004@gmail.com?subject=Booking%20a%20call',
 
     // Social links
     social: {
@@ -34,19 +42,20 @@ export const siteConfig = {
     // SEO Keywords
     keywords: [
         'Hafiz Ali Ahmed',
+        'AI-Native Cloud Architect',
+        'AI Agency Founder',
         'Agentic AI Developer',
         'OpenAI Agent SDK',
-
+        'AI Automation',
+        'Cloud Architecture',
         'AI Educator Pakistan',
         'Functions Global Co-Founder',
         'Governor Sindh GenAI Initiative',
         'Autonomous AI Systems',
-
         'AI Agent Development',
         'Machine Learning Expert',
         'Next.js Developer',
         'Full Stack AI Developer',
-        'Artificial Intelligence Educator',
     ],
 
     // Google verification

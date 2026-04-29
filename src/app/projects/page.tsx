@@ -1,146 +1,127 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import Image from 'next/image';
-import { getProjectsByCategory } from '@/data/projects';
-import { siteConfig } from '@/lib/siteConfig';
+import { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight, ArrowLeft } from "lucide-react";
+import { projects } from "@/data/projects";
+import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
+  title: `Projects | ${siteConfig.name}`,
+  description: `Explore projects by ${siteConfig.name}: AI agents, AI-native cloud architecture, and modern web platforms built with Next.js, React, and Python.`,
+  alternates: { canonical: `${siteConfig.url}/projects` },
+  openGraph: {
     title: `Projects | ${siteConfig.name}`,
-    description: `Explore projects by ${siteConfig.name} - AI applications, full-stack development, and modern web solutions built with Next.js, React, and Python.`,
-    openGraph: {
-        title: `Projects | ${siteConfig.name}`,
-        description: `Explore projects by ${siteConfig.name} - AI applications, full-stack development, and modern web solutions.`,
-        url: `${siteConfig.url}/projects`,
-    },
+    description: `Explore projects by ${siteConfig.name}: AI applications, full-stack development, and modern web solutions.`,
+    url: `${siteConfig.url}/projects`,
+  },
 };
 
+const SECTIONS: { label: string; category: "fullstack" | "ai" | "web" }[] = [
+  { label: "Full-stack & AI products", category: "fullstack" },
+  { label: "AI / Agents", category: "ai" },
+  { label: "Web", category: "web" },
+];
+
 export default function ProjectsPage() {
-    const fullstackProjects = getProjectsByCategory('fullstack');
-    const aiProjects = getProjectsByCategory('ai');
+  return (
+    <main className="bg-bg text-text-primary">
+      {/* Hero */}
+      <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-noise">
+        <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />
+        <div className="pointer-events-none absolute inset-0 bg-radial-glow" aria-hidden />
 
-    return (
-        <main className="min-h-screen py-20 px-5 md:px-10">
-            <div className="max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 mb-4">
-                        My Projects
-                    </h1>
-                    <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-                        A collection of projects showcasing expertise in AI development, full-stack applications,
-                        and modern web technologies. Each project demonstrates practical implementation of cutting-edge tools.
-                    </p>
-                </div>
+        <div className="relative max-w-container mx-auto px-5 lg:px-8">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" strokeWidth={1.6} />
+            Back home
+          </Link>
 
-                {/* Full Stack Projects */}
-                {fullstackProjects.length > 0 && (
-                    <section className="mb-16">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
-                            Full Stack Applications
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {fullstackProjects.map((project) => (
-                                <Link
-                                    key={project.slug}
-                                    href={`/projects/${project.slug}`}
-                                    className="group block"
-                                >
-                                    <article className="bg-[#0300145e] border border-[#7042f88b] rounded-lg overflow-hidden hover:border-purple-500 transition-all duration-300 hover:scale-[1.02]">
-                                        <div className="aspect-video relative overflow-hidden">
-                                            <Image
-                                                src={project.image}
-                                                alt={project.title}
-                                                fill
-                                                className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                            />
-                                        </div>
-                                        <div className="p-6">
-                                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                                                {project.description}
-                                            </p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {project.technologies.slice(0, 3).map((tech) => (
-                                                    <span
-                                                        key={tech}
-                                                        className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                                {project.technologies.length > 3 && (
-                                                    <span className="px-2 py-1 text-xs bg-gray-500/20 text-gray-400 rounded">
-                                                        +{project.technologies.length - 3} more
-                                                    </span>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </article>
-                                </Link>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
-                {/* AI Projects */}
-                {aiProjects.length > 0 && (
-                    <section className="mb-16">
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-8 text-center">
-                            AI & Machine Learning
-                        </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {aiProjects.map((project) => (
-                                <Link
-                                    key={project.slug}
-                                    href={`/projects/${project.slug}`}
-                                    className="group block"
-                                >
-                                    <article className="bg-[#0300145e] border border-[#7042f88b] rounded-lg overflow-hidden hover:border-cyan-500 transition-all duration-300 hover:scale-[1.02]">
-                                        <div className="aspect-video relative overflow-hidden">
-                                            <Image
-                                                src={project.image}
-                                                alt={project.title}
-                                                fill
-                                                className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                            />
-                                        </div>
-                                        <div className="p-6">
-                                            <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                                                {project.title}
-                                            </h3>
-                                            <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                                                {project.description}
-                                            </p>
-                                            <div className="flex flex-wrap gap-2">
-                                                {project.technologies.slice(0, 3).map((tech) => (
-                                                    <span
-                                                        key={tech}
-                                                        className="px-2 py-1 text-xs bg-cyan-500/20 text-cyan-300 rounded"
-                                                    >
-                                                        {tech}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </article>
-                                </Link>
-                            ))}
-                        </div>
-                    </section>
-                )}
-
-                {/* Back to Home */}
-                <div className="text-center mt-12">
-                    <Link
-                        href="/"
-                        className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 text-white rounded-lg hover:scale-105 transition-transform"
-                    >
-                        ← Back to Home
-                    </Link>
-                </div>
+          <div className="mt-10 grid lg:grid-cols-12 gap-10 items-end">
+            <div className="lg:col-span-7">
+              <div className="eyebrow">
+                <span className="dot" /> Archive
+              </div>
+              <h1 className="display-h1 mt-5 text-balance">
+                All{" "}
+                <span className="display-italic text-accent">work.</span>
+              </h1>
             </div>
-        </main>
-    );
+            <div className="lg:col-span-5">
+              <p className="text-lg text-text-secondary leading-relaxed">
+                Selected projects across AI agents, cloud architecture, and
+                full-stack platforms. Most client engagements remain private.
+                Ping me on a call to dive into the case studies.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {SECTIONS.map(({ label, category }) => {
+        const items = projects.filter((p) => p.category === category);
+        if (!items.length) return null;
+        return (
+          <section key={category} className="border-t border-border">
+            <div className="max-w-container mx-auto px-5 lg:px-8 py-16">
+              <div className="flex items-end justify-between">
+                <div className="eyebrow">
+                  <span className="dot" /> {label}
+                </div>
+                <span className="font-mono text-xs uppercase tracking-[0.14em] text-text-muted">
+                  {items.length} projects
+                </span>
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {items.map((p) => (
+                  <Link
+                    key={p.slug}
+                    href={`/projects/${p.slug}`}
+                    className="card-feature group block p-0 overflow-hidden"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <Image
+                        src={p.image}
+                        alt={p.title}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-bg/60 via-transparent to-transparent" />
+                    </div>
+                    <div className="p-6">
+                      <div className="flex items-center justify-between text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
+                        <span>{p.category === "ai" ? "AI / Agents" : p.category === "fullstack" ? "Full-stack" : "Web"}</span>
+                        {p.featured && <span className="text-accent">Featured</span>}
+                      </div>
+                      <h3 className="mt-3 text-xl font-medium tracking-tight text-text-primary group-hover:text-accent transition-colors">
+                        {p.title}
+                      </h3>
+                      <p className="mt-2 text-sm text-text-secondary line-clamp-2 leading-relaxed">
+                        {p.description}
+                      </p>
+                      <div className="mt-5 flex flex-wrap gap-1.5">
+                        {p.technologies.slice(0, 4).map((t) => (
+                          <span key={t} className="tag">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="mt-5 inline-flex items-center gap-1.5 text-sm text-text-primary">
+                        Open project
+                        <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      })}
+    </main>
+  );
 }

@@ -1,21 +1,21 @@
 import Hero from "./component/main/Hero";
 import About from "./component/main/About";
-import Skills from "./component/main/Skills";
-import Encryption from "./component/main/Encryption";
+import Services from "./component/main/Services";
 import Projects from "./component/main/Projects";
-
-
+import Skills from "./component/main/Skills";
+import Blogs from "./component/main/Blogs";
+import Contact from "./component/main/Contact";
 
 export default function Home() {
   return (
-    <main className="h-full w-full">
-      <div className="flex flex-col gap-20">
-        <Hero />
-        <About />
-        <Skills />
-        <Encryption />
-        <Projects />
-      </div>
+    <main className="w-full bg-bg text-text-primary">
+      <Hero />
+      <About />
+      <Services />
+      <Projects />
+      <Skills />
+      <Blogs />
+      <Contact />
     </main>
   );
 }
