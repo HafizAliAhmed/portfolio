@@ -9,23 +9,50 @@ export const siteConfig = {
 
     // Site metadata
     name: 'Hafiz Ali Ahmed',
-    title: 'Hafiz Ali Ahmed · AI-Native Cloud Architect & Founder',
+    title: 'Hafiz Ali Ahmed · Co-founder & CEO of Safock · AI Automations',
     description:
-        'Hafiz Ali Ahmed is an AI-native Cloud Architect and founder building production-grade AI agents, automation systems, and cloud platforms for ambitious teams and startups.',
+        'Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI automations company building agentic systems for ambitious teams and developing its own AI-native product. Co-founder & CTO of Functions Global. Lead Teacher at Governor House — mentored 10,000+ students.',
 
-    // Short marketing line for hero / OG
-    tagline: 'I build AI systems that ship. Not demos.',
+    // Short marketing line
+    tagline: 'Co-founder & CEO of Safock. I build AI automations that ship.',
 
     // Author information
     author: {
         name: 'Hafiz Ali Ahmed',
         email: 'hafizaliahmed2004@gmail.com',
-        jobTitle: 'AI-Native Cloud Architect & Founder',
-        company: 'Functions Global',
+        jobTitle: 'Co-founder & CEO of Safock',
+        company: 'Safock',
+        previousCompany: 'Functions Global',
+        location: 'Karachi, Pakistan',
     },
 
-    // Booking / scheduling link (replace with your real Cal.com or Calendly)
-    bookingUrl: 'mailto:hafizaliahmed2004@gmail.com?subject=Booking%20a%20call',
+    // Company / agency
+    safock: {
+        name: 'Safock',
+        url: 'https://safock.com',
+        description:
+            'AI automations company. Agentic workflows and automation systems for ambitious teams, plus our own AI-native product in development.',
+        founded: 'July 2025',
+    },
+
+    // Other roles
+    functionsGlobal: {
+        name: 'Functions Global',
+        role: 'Co-founder & CTO',
+        since: '2023',
+    },
+
+    governorHouse: {
+        name: 'Governor House',
+        role: 'Lead Teacher',
+        track: 'AI-Native, Cloud, Business & Entrepreneurship',
+        weeklyStudents: '1,500+',
+        totalMentored: '10,000+',
+    },
+
+    // Booking / scheduling link — currently routes to email
+    bookingUrl:
+        'mailto:hafizaliahmed2004@gmail.com?subject=Strategy%20call%20%C2%B7%20Safock',
 
     // Social links
     social: {
@@ -34,28 +61,43 @@ export const siteConfig = {
         linkedin: 'https://www.linkedin.com/in/hafizaliahmed',
         github: 'https://github.com/HafizAliAhmed',
         medium: 'https://medium.com/@hafizaliahmed2004',
+        safock: 'https://safock.com',
     },
 
     // Default OpenGraph image
     ogImage: '/portfoliopicture.png',
 
-    // SEO Keywords
+    // SEO Keywords — brand, intent, and topical
     keywords: [
+        // Brand
         'Hafiz Ali Ahmed',
-        'AI-Native Cloud Architect',
-        'AI Agency Founder',
-        'Agentic AI Developer',
-        'OpenAI Agent SDK',
-        'AI Automation',
-        'Cloud Architecture',
-        'AI Educator Pakistan',
-        'Functions Global Co-Founder',
-        'Governor Sindh GenAI Initiative',
-        'Autonomous AI Systems',
-        'AI Agent Development',
-        'Machine Learning Expert',
-        'Next.js Developer',
-        'Full Stack AI Developer',
+        'Hafiz Ali Ahmed Safock',
+        'Safock',
+        'Safock CEO',
+        'Safock co-founder',
+        'Functions Global CTO',
+        // Role
+        'AI automations agency',
+        'AI agency Pakistan',
+        'AI agency CEO',
+        'AI automations company',
+        'AI-native product',
+        'AI-native cloud architect',
+        // Services / intent
+        'Hire AI automations agency',
+        'AI automation services',
+        'AI agent development',
+        'Agentic workflows',
+        'AI consulting for founders',
+        // Education / authority
+        'Governor House AI-Native track',
+        'Governor House Lead Teacher',
+        'AI educator Pakistan',
+        // Topical
+        'OpenAI Agents SDK',
+        'LangGraph',
+        'Multi-agent systems',
+        'AI cloud infrastructure',
     ],
 
     // Google verification

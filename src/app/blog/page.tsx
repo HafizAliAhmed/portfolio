@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: `${siteConfig.url}/blog` },
 };
 
-const ALL_CATEGORIES = ["All", "AI", "Cloud", "Automation", "Startups", "Entrepreneurship"];
+const ALL_CATEGORIES = ["All", "AI", "Cloud", "Founder", "Strategy", "Education"];
 
 export default function BlogIndexPage() {
   const posts = getAllPosts();

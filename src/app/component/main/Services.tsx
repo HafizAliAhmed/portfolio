@@ -1,41 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Bot, Cloud, Workflow, GraduationCap } from "lucide-react";
+import { ArrowUpRight, Bot, Workflow, Cloud, GraduationCap } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 
 const SERVICES = [
   {
-    icon: Bot,
-    name: "Agentic AI Engineering",
+    icon: Workflow,
+    name: "AI Automation Builds",
     desc:
-      "Production agents with planning, tool-use, memory and evaluations. Built on OpenAI Agents SDK, LangGraph, and CrewAI, with real observability, not just vibes.",
-    deliverables: ["Agent architecture & specs", "Tool integrations", "Eval harness + telemetry", "Hand-off to your team"],
+      "End-to-end automation systems for operations, sales, support, and internal workflows. Custom-built, integrated with your stack, and shipped to production. The core of what we deliver at Safock.",
+    deliverables: [
+      "Workflow audit & spec",
+      "Automation build",
+      "Integration with your stack",
+      "Handover & monitoring",
+    ],
+    eta: "2–6 weeks",
+  },
+  {
+    icon: Bot,
+    name: "Agentic AI Systems",
+    desc:
+      "Production-grade AI agents with planning, tool-use, memory, and evaluations. Built on OpenAI Agents SDK and LangGraph. Engineered for reliability — not demo-day polish.",
+    deliverables: [
+      "Architecture & spec",
+      "Agent + tool implementation",
+      "Eval harness & telemetry",
+      "Production deployment",
+    ],
     eta: "4–8 weeks",
   },
   {
     icon: Cloud,
     name: "AI-Native Cloud Architecture",
     desc:
-      "I design and ship the infra layer your AI product runs on: vector DBs, RAG pipelines, queues, schedulers, auth, billing. On AWS, GCP, or Vercel + Cloudflare.",
-    deliverables: ["System diagram & RFC", "IaC + CI/CD", "Cost & scale plan", "Security review"],
+      "Design and implementation of the cloud layer your AI product runs on. Vector databases, RAG pipelines, queues, and observability built in from day one — on AWS, GCP, or Vercel.",
+    deliverables: [
+      "Architecture RFC & diagrams",
+      "Infrastructure-as-code",
+      "Cost & scale plan",
+      "Security review",
+    ],
     eta: "3–6 weeks",
   },
   {
-    icon: Workflow,
-    name: "Automation & Internal AI",
-    desc:
-      "Replace operations work with agentic workflows: lead enrichment, research, content ops, customer support deflection, ticket triage. Measured in hours saved and revenue moved.",
-    deliverables: ["Workflow audit", "Automation build-out", "Integration with your stack", "ROI dashboard"],
-    eta: "2–5 weeks",
-  },
-  {
     icon: GraduationCap,
-    name: "Founder Advisory & Cohorts",
+    name: "Workshops & Strategic Advisory",
     desc:
-      "Hands-on advisory for founders going from prototype to revenue. Private cohorts and fractional engineering for early-stage AI startups that can't afford to waste cycles.",
-    deliverables: ["Strategy roadmap", "Weekly working sessions", "Hiring & stack guidance", "Founder cohort access"],
-    eta: "Ongoing",
+      "Selective in-house workshops and fractional advisory for engineering teams ready to ship AI-native. Drawn from teaching 10,000+ students and building production AI for clients.",
+    deliverables: [
+      "Custom curriculum or strategy",
+      "Live working sessions",
+      "Reusable internal templates",
+      "Post-engagement office hours",
+    ],
+    eta: "2–4 weeks",
   },
 ];
 
@@ -51,14 +71,24 @@ export default function Services() {
             </div>
             <h2 className="display-h2 mt-5 text-balance">
               How I work with{" "}
-              <span className="display-italic text-text-secondary">founders & teams.</span>
+              <span className="display-italic text-text-secondary">
+                founders & teams.
+              </span>
             </h2>
           </div>
           <div className="lg:col-span-5">
             <p className="text-lg text-text-secondary leading-relaxed">
-              Four engagement shapes, chosen so we can move fast without
-              skipping the parts that actually matter. Every project is led
-              personally, scoped end-to-end, and shipped to production.
+              All client engagements run through{" "}
+              <Link
+                href={siteConfig.safock.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-primary link-underline"
+              >
+                Safock
+              </Link>
+              . Four engagement shapes covering most asks. Tightly scoped,
+              founder-led, shipped end-to-end.
             </p>
           </div>
         </div>
@@ -104,7 +134,7 @@ export default function Services() {
 
                 <div className="mt-6 flex items-center justify-between">
                   <span className="text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
-                    Typical timeline · {s.eta}
+                    Typical · {s.eta}
                   </span>
                   <Link
                     href={siteConfig.bookingUrl}
@@ -119,14 +149,36 @@ export default function Services() {
           })}
         </div>
 
+        {/* Building in parallel callout */}
+        <div className="mt-12 rounded-lg border border-border bg-bg-card p-7 lg:p-9">
+          <div className="flex items-start gap-4">
+            <div className="inline-flex items-center justify-center w-11 h-11 rounded-md bg-bg-elevated border border-border text-accent flex-shrink-0">
+              <span className="font-mono text-xs">P/01</span>
+            </div>
+            <div>
+              <div className="text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
+                Building in parallel
+              </div>
+              <div className="mt-2 text-xl lg:text-2xl font-medium tracking-tight text-text-primary">
+                Safock&apos;s own AI-native product is in active development.
+              </div>
+              <p className="mt-2 text-text-secondary leading-relaxed">
+                Alongside client engagements, we&apos;re building our own
+                AI-native product in stealth. Founder-led, dogfooded across
+                every internal workflow. Details when it ships.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* CTA strip */}
-        <div className="mt-14 rounded-lg border border-border bg-bg-card p-7 lg:p-9 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
+        <div className="mt-6 rounded-lg border border-border bg-bg-card p-7 lg:p-9 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5">
           <div>
             <div className="text-xl lg:text-2xl font-medium tracking-tight text-text-primary">
               Not sure which one fits?
             </div>
             <p className="mt-1.5 text-text-secondary">
-              Send a 2-line note about what you&apos;re building. I&apos;ll reply
+              Send a 2-line note about what you&apos;re building. I reply
               within 24 hours with a recommendation. No pitch deck required.
             </p>
           </div>

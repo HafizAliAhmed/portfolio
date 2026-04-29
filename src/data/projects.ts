@@ -18,64 +18,94 @@ export interface Project {
 
 export const projects: Project[] = [
     {
-        slug: 'nextjs-portfolio',
-        title: 'Next.js Portfolio',
-        description: 'Modern portfolio website showcasing projects with responsive design and smooth animations',
-        longDescription: `A cutting-edge portfolio website built with Next.js 14, featuring a sleek dark theme with purple and cyan gradients. 
-    
-This portfolio demonstrates expertise in modern web development with React, TypeScript, and Tailwind CSS. Key features include:
+        slug: 'safock',
+        title: 'Safock — AI Automations',
+        description:
+            'Co-founder & CEO of Safock — an AI automations company shipping agentic systems for ambitious teams while developing our own AI-native product in parallel.',
+        longDescription: `Safock is the company I co-founded in July 2025 and currently serve as CEO. We do two things in parallel:
 
-- **Responsive Design**: Fully optimized for all screen sizes from mobile to desktop
-- **Smooth Animations**: Powered by Framer Motion for engaging user interactions
-- **SEO Optimized**: Dynamic metadata generation and structured data for search engines
-- **Performance First**: Image optimization, lazy loading, and efficient rendering
-- **3D Background**: Interactive star field using Three.js and React Three Fiber`,
-        image: '/project2.png',
-        technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Three.js'],
+- **AI Automations for clients**: end-to-end automation systems for operations, sales, support, and internal workflows. Custom-built, integrated with the client's stack, and shipped to production.
+- **Our own AI-native product**: in active development, founder-led, dogfooded across every internal workflow at Safock.
+
+Our thesis: most AI work fails because it stops at the demo. Safock builds for production from day one — tightly scoped engagements, founder-led delivery, and honest reporting on what works.`,
+        image: '/safock-cover.png',
+        technologies: [
+            'OpenAI Agents SDK',
+            'LangGraph',
+            'AWS',
+            'Vercel',
+            'Next.js',
+            'Python',
+            'TypeScript',
+        ],
         githubUrl: 'https://github.com/HafizAliAhmed',
-        liveUrl: 'https://my-portfolio-project-vert.vercel.app/',
-        category: 'fullstack',
+        liveUrl: 'https://safock.com',
+        category: 'ai',
+        featured: true,
+    },
+    {
+        slug: 'functions-global',
+        title: 'Functions Global',
+        description:
+            'Co-founder & CTO of Functions Global since 2023. Lead engineering across AI-native products and infrastructure.',
+        longDescription: `I co-founded Functions Global in 2023 and currently serve as CTO, leading engineering across AI-native products and the infrastructure they run on.
+
+The role spans architecture, hands-on engineering, and team leadership — covering everything from initial product design to production deployment and post-launch iteration.`,
+        image: '/functions-global-cover.png',
+        technologies: [
+            'AI Engineering',
+            'Cloud Architecture',
+            'Next.js',
+            'Python',
+            'TypeScript',
+            'AWS',
+        ],
+        githubUrl: 'https://github.com/HafizAliAhmed',
+        liveUrl: 'https://functionsglobal.com',
+        category: 'ai',
+        featured: true,
+    },
+    {
+        slug: 'governor-house-teaching',
+        title: 'Governor House — Lead Teacher',
+        description:
+            'Lead Teacher at Governor House. 1,500+ students mentored on-site every week across AI-native, cloud, business, and entrepreneurship. 10,000+ students taught in total.',
+        longDescription: `As Lead Teacher at Governor House, I run an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship.
+
+In total, I've mentored more than 10,000 students. The work spans curriculum design, live teaching, mentorship, and milestone-driven cohort delivery — most of those frameworks now run inside Safock's engagement playbooks.`,
+        image: '/governor-house-cover.png',
+        technologies: [
+            'Curriculum Design',
+            'AI-Native Development',
+            'Cloud',
+            'Business & Entrepreneurship',
+            'Cohort Education',
+        ],
+        githubUrl: 'https://github.com/HafizAliAhmed',
+        liveUrl: 'https://www.linkedin.com/in/hafizaliahmed',
+        category: 'ai',
         featured: true,
     },
     {
         slug: 'photo-gallery-app',
-        title: 'Photo Gallery App',
-        description: 'Cloud-based photo management system with Cloudinary integration and optimized image delivery',
-        longDescription: `A sophisticated photo gallery application leveraging Cloudinary's powerful image management capabilities.
+        title: 'Cloud Photo Gallery',
+        description:
+            'A cloud-native photo management application built with Cloudinary, Next.js, and Vercel. Image transformation, optimised delivery, and modern cloud-storage patterns.',
+        longDescription: `A cloud-native photo gallery built around Cloudinary's transformation and delivery layer.
 
-This project showcases cloud-native development skills with modern web technologies. Features include:
+Features:
 
-- **Cloud Storage**: Seamless integration with Cloudinary for image hosting and transformation
-- **Optimized Delivery**: Automatic image optimization and responsive delivery
-- **Gallery Management**: Intuitive interface for uploading, organizing, and viewing photos
-- **Performance**: Lazy loading and progressive image loading for fast user experience
-- **Modern Stack**: Built with Next.js and deployed on Vercel for global edge delivery`,
+- **Cloud-first storage** with Cloudinary as the source of truth for image hosting, transformation, and delivery.
+- **Optimised delivery** through automatic format negotiation, responsive sizing, and progressive loading.
+- **Gallery management** with intuitive upload, organisation, and viewing interfaces.
+- **Modern stack** built on Next.js with deployment to Vercel for global edge distribution.`,
         image: '/project3.png',
         technologies: ['Next.js', 'Cloudinary', 'React', 'TypeScript', 'Vercel'],
         githubUrl: 'https://github.com/HafizAliAhmed/cloudinary-photo-gallery-app',
-        liveUrl: 'https://cloudinary-photo-gallery-88ashyb70-hafiz-ali-ahmeds-projects.vercel.app/gallery',
+        liveUrl:
+            'https://cloudinary-photo-gallery-88ashyb70-hafiz-ali-ahmeds-projects.vercel.app/gallery',
         category: 'fullstack',
-        featured: true,
-    },
-    {
-        slug: 'ecommerce-website',
-        title: 'E-commerce Website',
-        description: 'Full-featured e-commerce platform with cart, checkout, and payment integration',
-        longDescription: `A comprehensive e-commerce solution demonstrating full-stack development expertise with modern payment processing.
-
-This project was built during a hackathon and features:
-
-- **Complete Shopping Experience**: Product browsing, cart management, and secure checkout
-- **Payment Integration**: Stripe payment processing for secure transactions
-- **Product Management**: Dynamic product catalog with categories and search
-- **Responsive Design**: Mobile-first approach for shopping on any device
-- **Modern Architecture**: Built with Next.js, TypeScript, and Sanity CMS for content management`,
-        image: '/SpaceWebsite.png',
-        technologies: ['Next.js', 'React', 'TypeScript', 'Stripe', 'Sanity CMS', 'Tailwind CSS'],
-        githubUrl: 'https://github.com/HafizAliAhmed',
-        liveUrl: 'https://hackathon-beryl.vercel.app/',
-        category: 'fullstack',
-        featured: true,
+        featured: false,
     },
 ];
 

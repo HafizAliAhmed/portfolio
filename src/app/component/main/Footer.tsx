@@ -16,10 +16,11 @@ const FOOTER_NAV = [
   {
     title: "Connect",
     links: [
-      { label: "Email", href: `mailto:${siteConfig.author.email}` },
+      { label: "Safock", href: siteConfig.safock.url, external: true },
       { label: "Book a call", href: siteConfig.bookingUrl },
-      { label: "X / Twitter", href: siteConfig.social.twitterUrl, external: true },
+      { label: "Email", href: `mailto:${siteConfig.author.email}` },
       { label: "LinkedIn", href: siteConfig.social.linkedin, external: true },
+      { label: "X / Twitter", href: siteConfig.social.twitterUrl, external: true },
       { label: "GitHub", href: siteConfig.social.github, external: true },
       { label: "Medium", href: siteConfig.social.medium, external: true },
     ],
@@ -53,9 +54,16 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-6 max-w-md text-text-secondary leading-relaxed">
-              {siteConfig.author.name}. AI-native cloud architect, founder of{" "}
-              {siteConfig.author.company}. Building AI systems that ship in
-              production, not on slide decks.
+              {siteConfig.author.name}. Co-founder & CEO of{" "}
+              <Link
+                href={siteConfig.safock.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-text-primary link-underline"
+              >
+                {siteConfig.safock.name}
+              </Link>
+              {" "}— an AI automations company. Co-founder & CTO of Functions Global. Lead Teacher at Governor House.
             </p>
             <Link
               href={siteConfig.bookingUrl}
@@ -110,8 +118,6 @@ export default function Footer() {
               <span className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_var(--accent-glow)]" />
               Available for Q3 2026
             </span>
-            <span className="w-1 h-1 rounded-full bg-text-faint" />
-            <span>Built with Next.js</span>
           </div>
         </div>
       </div>

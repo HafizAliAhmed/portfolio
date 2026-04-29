@@ -6,20 +6,20 @@ import { siteConfig } from "@/lib/siteConfig";
 
 const FOCUS_AREAS = [
   {
-    label: "Agentic AI",
-    desc: "Autonomous agents with OpenAI Agents SDK, LangGraph, tool-use, memory, evals.",
+    label: "AI Automations",
+    desc: "Agentic workflows and end-to-end automation systems for ambitious teams. The core of what we build at Safock.",
   },
   {
-    label: "AI-Native Cloud",
-    desc: "Production architecture on AWS / GCP with vector DBs, RAG, observability and cost guardrails.",
+    label: "AI-Native Product",
+    desc: "Building Safock's own AI-native product alongside client work. Founder-led, in active development.",
   },
   {
-    label: "Automation Systems",
-    desc: "End-to-end workflows that replace operations work, not Zapier toys.",
+    label: "Cloud Architecture",
+    desc: "AI-native cloud infrastructure on AWS, GCP, and Vercel — designed for production from the first commit.",
   },
   {
-    label: "Founder Coaching",
-    desc: "Helping founders go from prototype to revenue without burning a team.",
+    label: "Education",
+    desc: "Lead Teacher at Governor House. 1,500+ students on-site weekly across AI-native, cloud, business, and entrepreneurship.",
   },
 ];
 
@@ -34,9 +34,9 @@ export default function About() {
               <span className="dot" /> 01 · About
             </div>
             <h2 className="display-h2 mt-5 text-balance">
-              Operator. Builder.
+              Founder. Builder.
               <br />
-              <span className="display-italic text-text-secondary">Always shipping.</span>
+              <span className="display-italic text-text-secondary">Educator.</span>
             </h2>
           </div>
 
@@ -45,42 +45,67 @@ export default function About() {
               <p>
                 I&apos;m{" "}
                 <span className="text-text-primary">{siteConfig.author.name}</span>
-                . I started writing code because I wanted to build the things I
-                couldn&apos;t buy. Today I run{" "}
-                <span className="text-text-primary">{siteConfig.author.company}</span>{" "}
-                . An AI agency that designs and ships agentic systems for
-                ambitious teams.
+                . My career sits at the seam of three roles that compound on
+                each other: founder, builder, and educator.
               </p>
+
               <p>
-                Before this, I taught{" "}
-                <span className="text-text-primary">1,500+ students</span> at
-                the Governor Sindh Initiative for GenAI, Web3, and Metaverse,
-                walking founders, engineers, and operators from zero to
-                shipping AI products in production. That experience taught me
-                what&apos;s noise and what actually moves the needle.
+                In 2023 I co-founded{" "}
+                <span className="text-text-primary">
+                  {siteConfig.functionsGlobal.name}
+                </span>{" "}
+                and serve as its{" "}
+                <span className="text-text-primary">
+                  {siteConfig.functionsGlobal.role}
+                </span>
+                , leading engineering across AI-native products and
+                infrastructure. In July 2025 I co-founded{" "}
+                <Link
+                  href={siteConfig.safock.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-primary link-underline"
+                >
+                  Safock
+                </Link>
+                , an AI automations company. We ship agentic workflows and
+                automation systems for ambitious teams while developing our
+                own AI-native product in parallel. I&apos;m{" "}
+                <span className="text-text-primary">Co-founder & CEO</span>.
               </p>
+
               <p>
-                My work sits at the seam of three things:{" "}
-                <span className="text-text-primary">cloud architecture</span>,{" "}
-                <span className="text-text-primary">agentic AI</span>, and{" "}
-                <span className="text-text-primary">founder-led execution</span>
-                . If you&apos;re building something that needs to be reliable,
-                fast, and revenue-bearing, that&apos;s where I plug in.
+                Alongside the companies, I teach. I&apos;ve mentored{" "}
+                <span className="text-text-primary">10,000+ students</span> in
+                total and currently serve as{" "}
+                <span className="text-text-primary">Lead Teacher</span> at{" "}
+                <span className="text-text-primary">Governor House</span>,
+                where I instruct{" "}
+                <span className="text-text-primary">1,500+ students</span>{" "}
+                on-site every week across AI-native development, cloud
+                architecture, business, and entrepreneurship.
+              </p>
+
+              <p>
+                The thread across all three roles is the same: build things
+                that work in production, teach what I learn, and ship more
+                than I talk about. Safock is the latest expression of that
+                thesis.
               </p>
             </div>
 
-            <div className="mt-10 flex items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link href={siteConfig.bookingUrl} className="btn-primary">
-                Work with me
+                Book a strategy call
                 <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
               </Link>
               <Link
-                href={siteConfig.social.linkedin}
+                href={siteConfig.safock.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-ghost"
+                className="btn-secondary"
               >
-                Read background
+                Visit Safock
                 <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
               </Link>
             </div>
@@ -107,19 +132,20 @@ export default function About() {
           ))}
         </div>
 
-        {/* Pull quote / philosophy */}
+        {/* Operating principle */}
         <div className="mt-24 max-w-3xl mx-auto text-center">
           <div className="eyebrow justify-center">
             <span className="dot" /> Operating principle
           </div>
           <p className="mt-6 display-h3 text-balance">
             <span className="display-italic text-text-secondary">
-              &ldquo;Most AI work fails because it stops at the demo.&rdquo;
+              &ldquo;Build it, teach it, ship it.&rdquo;
             </span>{" "}
             <br className="hidden sm:block" />
             <span className="text-text-primary">
-              I treat every engagement like it has to survive contact with real
-              users on day one, because it does.
+              The only way to know what works in AI is to put it in front of
+              users — and the only way to scale what you learn is to teach it
+              to the next builder.
             </span>
           </p>
         </div>

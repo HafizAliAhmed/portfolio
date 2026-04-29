@@ -104,15 +104,26 @@ export default function RootLayout({
       siteConfig.social.linkedin,
       siteConfig.social.github,
       siteConfig.social.medium,
+      siteConfig.safock.url,
     ],
-    worksFor: {
-      '@type': 'Organization',
-      name: siteConfig.author.company,
-    },
-    alumniOf: {
-      '@type': 'EducationalOrganization',
-      name: 'Governor Sindh Initiative for GenAI, Web3, and Metaverse',
-    },
+    worksFor: [
+      {
+        '@type': 'Organization',
+        name: siteConfig.safock.name,
+        url: siteConfig.safock.url,
+        description: 'AI Automations company',
+      },
+      {
+        '@type': 'Organization',
+        name: siteConfig.functionsGlobal.name,
+        description: `${siteConfig.functionsGlobal.role} since ${siteConfig.functionsGlobal.since}`,
+      },
+      {
+        '@type': 'EducationalOrganization',
+        name: siteConfig.governorHouse.name,
+        description: `${siteConfig.governorHouse.role} — ${siteConfig.governorHouse.track}`,
+      },
+    ],
     knowsAbout: [
       'Agentic AI',
       'AI-Native Cloud Architecture',

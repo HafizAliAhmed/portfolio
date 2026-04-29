@@ -93,7 +93,7 @@ My Next.js expertise includes:
         width: 80,
         height: 80,
         category: 'fullstack',
-        relatedProjects: ['nextjs-portfolio', 'photo-gallery-app', 'ecommerce-website'],
+        relatedProjects: ['safock', 'nextjs-portfolio', 'photo-gallery-app'],
         featured: true,
     },
     {
@@ -112,7 +112,7 @@ My React skills include:
         width: 80,
         height: 80,
         category: 'fullstack',
-        relatedProjects: ['nextjs-portfolio', 'photo-gallery-app', 'ecommerce-website'],
+        relatedProjects: ['safock', 'nextjs-portfolio', 'photo-gallery-app'],
         featured: true,
     },
     {
@@ -131,7 +131,7 @@ My TypeScript expertise includes:
         width: 80,
         height: 80,
         category: 'fullstack',
-        relatedProjects: ['nextjs-portfolio', 'photo-gallery-app', 'ecommerce-website'],
+        relatedProjects: ['safock', 'nextjs-portfolio', 'photo-gallery-app'],
         featured: true,
     },
     {
@@ -150,7 +150,7 @@ My Tailwind CSS skills include:
         width: 80,
         height: 80,
         category: 'fullstack',
-        relatedProjects: ['nextjs-portfolio', 'ecommerce-website'],
+        relatedProjects: ['safock', 'nextjs-portfolio'],
         featured: true,
     },
     {
@@ -169,7 +169,7 @@ My Stripe expertise includes:
         width: 80,
         height: 80,
         category: 'fullstack',
-        relatedProjects: ['ecommerce-website'],
+        relatedProjects: ['safock'],
         featured: true,
     },
 

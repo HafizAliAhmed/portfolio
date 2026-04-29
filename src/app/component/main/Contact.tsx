@@ -18,17 +18,19 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="eyebrow justify-center inline-flex">
-            <span className="dot" /> 06 · Let&apos;s build
+            <span className="dot" /> 06 · Let&apos;s talk
           </div>
           <h2 className="display-h1 mt-6 text-balance">
-            Got something{" "}
-            <span className="display-italic text-accent">ambitious</span> in
-            mind?
+            Building something{" "}
+            <span className="display-italic text-text-secondary">
+              ambitious?
+            </span>
           </h2>
           <p className="mt-6 lead mx-auto">
-            Whether it&apos;s an AI agent for your team, a cloud system that
-            keeps falling over, or a startup idea you&apos;re ready to ship,
-            send a note. I read every message.
+            Safock takes a small number of selective engagements per quarter.
+            If you&apos;re a founder or enterprise team building with AI and
+            need a partner who actually ships, send a note. I read every
+            message and reply within 24 hours.
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -37,11 +39,13 @@ export default function Contact() {
               <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
             </Link>
             <Link
-              href={`mailto:${siteConfig.author.email}`}
+              href={siteConfig.safock.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary"
             >
-              <Mail className="w-4 h-4" strokeWidth={1.6} />
-              {siteConfig.author.email}
+              Visit Safock
+              <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
             </Link>
           </div>
         </div>
@@ -52,7 +56,7 @@ export default function Contact() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-md bg-bg-elevated border border-border text-accent">
               <Mail className="w-4 h-4" strokeWidth={1.6} />
             </div>
-            <div className="mt-5 text-text-primary font-medium">Email</div>
+            <div className="mt-5 text-text-primary font-medium">Direct email</div>
             <Link
               href={`mailto:${siteConfig.author.email}`}
               className="mt-2 block text-sm text-text-secondary hover:text-accent transition-colors break-all"
@@ -73,10 +77,10 @@ export default function Contact() {
               href={siteConfig.bookingUrl}
               className="mt-2 block text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              30-min intro · Free
+              30-min discovery · Complimentary
             </Link>
             <div className="mt-3 text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
-              For founders & teams
+              Founders & enterprise teams
             </div>
           </div>
 
@@ -86,10 +90,10 @@ export default function Contact() {
             </div>
             <div className="mt-5 text-text-primary font-medium">Working from</div>
             <div className="mt-2 text-sm text-text-secondary">
-              Karachi · Remote-first
+              {siteConfig.author.location}
             </div>
             <div className="mt-3 text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
-              GMT+5 · Async-friendly
+              GMT+5 · Async-friendly · Global clients
             </div>
           </div>
         </div>
@@ -97,18 +101,9 @@ export default function Contact() {
         {/* Socials */}
         <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-5 pt-8 border-t border-border">
           <div className="text-sm text-text-secondary">
-            Or find me on the platforms I actually post on.
+            Or connect on the platforms I actually post on.
           </div>
-          <div className="flex items-center gap-2">
-            <Link
-              href={siteConfig.social.twitterUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost"
-            >
-              X / Twitter
-              <ArrowUpRight className="w-3.5 h-3.5 btn-icon-arrow" strokeWidth={2} />
-            </Link>
+          <div className="flex flex-wrap items-center gap-2 justify-center">
             <Link
               href={siteConfig.social.linkedin}
               target="_blank"
@@ -116,6 +111,15 @@ export default function Contact() {
               className="btn-ghost"
             >
               LinkedIn
+              <ArrowUpRight className="w-3.5 h-3.5 btn-icon-arrow" strokeWidth={2} />
+            </Link>
+            <Link
+              href={siteConfig.social.twitterUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              X / Twitter
               <ArrowUpRight className="w-3.5 h-3.5 btn-icon-arrow" strokeWidth={2} />
             </Link>
             <Link
