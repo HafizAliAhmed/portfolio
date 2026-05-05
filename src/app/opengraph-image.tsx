@@ -19,8 +19,9 @@ export default async function OGImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px 80px",
-          background:
-            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(197,252,31,0.12), transparent 60%), #0a0a0a",
+          backgroundColor: "#0a0a0a",
+          backgroundImage:
+            "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(197,252,31,0.12), transparent 60%)",
           color: "#fafafa",
           fontFamily: "ui-sans-serif, system-ui, sans-serif",
           letterSpacing: "-0.02em",
