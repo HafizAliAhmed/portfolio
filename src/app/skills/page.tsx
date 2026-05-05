@@ -6,13 +6,28 @@ import { skills, getSkillsByCategory } from "@/data/skills";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: `Skills & Stack | ${siteConfig.name}`,
-  description: `Technical stack of ${siteConfig.name}: agentic AI, AI-native cloud architecture, full-stack engineering, and modern web platforms.`,
+  title: `Skills & Stack · ${siteConfig.name}`,
+  description: `The working stack of ${siteConfig.name} — Co-founder & CEO of Safock. Agentic AI (OpenAI Agents SDK, LangGraph), AI-native cloud architecture (AWS, GCP, Vercel), and modern full-stack engineering.`,
+  keywords: [
+    'AI engineering skills',
+    'AI-native cloud stack',
+    'OpenAI Agents SDK',
+    'LangGraph',
+    'Hafiz Ali Ahmed skills',
+    'Safock tech stack',
+  ],
   alternates: { canonical: `${siteConfig.url}/skills` },
   openGraph: {
-    title: `Skills & Stack | ${siteConfig.name}`,
-    description: `Technical stack of ${siteConfig.name}: AI, full-stack, and cloud expertise.`,
+    title: `Skills & Stack · ${siteConfig.name}`,
+    description: `Technical stack of ${siteConfig.name} — AI, automations, and cloud.`,
     url: `${siteConfig.url}/skills`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Skills & Stack · ${siteConfig.name}`,
+    description: `Technical stack of ${siteConfig.name}.`,
+    creator: siteConfig.social.twitter,
   },
 };
 
@@ -26,7 +41,7 @@ function SkillCard({ skill }: { skill: typeof skills[0] }) {
         <div className="w-12 h-12 relative flex-shrink-0 rounded-md bg-bg-elevated border border-border p-2">
           <Image
             src={skill.icon}
-            alt={skill.name}
+            alt={`${skill.name} technology — used by Hafiz Ali Ahmed at Safock`}
             fill
             className="object-contain p-1.5"
           />
@@ -60,8 +75,25 @@ const SECTIONS: {
 ];
 
 export default function SkillsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Skills",
+        item: `${siteConfig.url}/skills`,
+      },
+    ],
+  };
   return (
     <main className="bg-bg text-text-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-noise">
         <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />

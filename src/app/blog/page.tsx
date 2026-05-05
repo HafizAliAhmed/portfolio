@@ -5,10 +5,25 @@ import { getAllPosts } from "@/data/blog";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Blog · Notes on AI, cloud & startups",
+  title: "Blog · Notes on AI, cloud & founder mechanics",
   description:
-    "Essays on agentic AI, AI-native cloud architecture, automation, business growth, and entrepreneurship, from Hafiz Ali Ahmed.",
+    "Essays by Hafiz Ali Ahmed (Co-founder & CEO of Safock) on agentic AI, AI-native cloud architecture, AI automations, founder mechanics, and what works inside production systems.",
+  keywords: [
+    "AI agency blog",
+    "agentic AI essays",
+    "AI automations",
+    "AI-native cloud architecture",
+    "founder mechanics",
+    "Safock blog",
+    "Hafiz Ali Ahmed blog",
+  ],
   alternates: { canonical: `${siteConfig.url}/blog` },
+  openGraph: {
+    title: `Blog · Notes on AI, cloud & founder mechanics`,
+    description: `Essays from ${siteConfig.author.name} — Co-founder & CEO of Safock.`,
+    url: `${siteConfig.url}/blog`,
+    type: "website",
+  },
 };
 
 const ALL_CATEGORIES = ["All", "AI", "Cloud", "Founder", "Strategy", "Education"];
@@ -18,8 +33,51 @@ export default function BlogIndexPage() {
   const featured = posts[0];
   const rest = posts.slice(1);
 
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${siteConfig.url}/blog`,
+    name: `${siteConfig.name} · Writing`,
+    url: `${siteConfig.url}/blog`,
+    description:
+      "Essays on agentic AI, AI-native cloud architecture, AI automations, and founder mechanics.",
+    author: { "@id": `${siteConfig.url}/#person` },
+    publisher: { "@id": `${siteConfig.url}/#person` },
+    inLanguage: "en-US",
+    blogPost: posts.map((p) => ({
+      "@type": "BlogPosting",
+      headline: p.title,
+      description: p.excerpt,
+      url: `${siteConfig.url}/blog/${p.slug}`,
+      datePublished: p.date,
+      author: { "@id": `${siteConfig.url}/#person` },
+    })),
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${siteConfig.url}/blog`,
+      },
+    ],
+  };
+
   return (
     <main className="bg-bg text-text-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-noise">
         <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />

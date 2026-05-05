@@ -60,8 +60,38 @@ const SERVICES = [
 ];
 
 export default function Services() {
+  // Service JSON-LD for each engagement shape — helps rank for service-intent queries
+  const servicesSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "Safock — AI Automations services",
+    description:
+      "Engagement shapes offered by Safock, an AI Automations company founded by Hafiz Ali Ahmed.",
+    itemListElement: SERVICES.map((s, i) => ({
+      "@type": "Service",
+      position: i + 1,
+      name: s.name,
+      description: s.desc,
+      provider: { "@id": `${siteConfig.safock.url}/#organization` },
+      areaServed: "Worldwide",
+      serviceType: s.name,
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: `${s.name} deliverables`,
+        itemListElement: s.deliverables.map((d) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: d },
+        })),
+      },
+    })),
+  };
+
   return (
     <section id="services" className="relative py-28 lg:py-36 border-t border-border">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema) }}
+      />
       <div className="max-w-container mx-auto px-5 lg:px-8">
         {/* Header */}
         <div className="grid lg:grid-cols-12 gap-10 items-end">

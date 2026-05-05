@@ -18,7 +18,7 @@ export default function Contact() {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto">
           <div className="eyebrow justify-center inline-flex">
-            <span className="dot" /> 06 · Let&apos;s talk
+            <span className="dot" /> 07 · Let&apos;s talk
           </div>
           <h2 className="display-h1 mt-6 text-balance">
             Building something{" "}

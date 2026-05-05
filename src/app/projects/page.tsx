@@ -6,13 +6,27 @@ import { projects } from "@/data/projects";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: `Projects | ${siteConfig.name}`,
-  description: `Explore projects by ${siteConfig.name}: AI agents, AI-native cloud architecture, and modern web platforms built with Next.js, React, and Python.`,
+  title: `Projects · Selected work by ${siteConfig.name}`,
+  description: `Selected projects and case studies by ${siteConfig.name} — Co-founder & CEO of Safock. AI agents, AI-native cloud architecture, automation systems, and full-stack platforms.`,
+  keywords: [
+    'AI agency projects',
+    'Safock case studies',
+    'AI agent projects',
+    'Hafiz Ali Ahmed portfolio',
+    'AI-native cloud projects',
+  ],
   alternates: { canonical: `${siteConfig.url}/projects` },
   openGraph: {
-    title: `Projects | ${siteConfig.name}`,
-    description: `Explore projects by ${siteConfig.name}: AI applications, full-stack development, and modern web solutions.`,
+    title: `Projects · ${siteConfig.name}`,
+    description: `Selected projects and case studies by ${siteConfig.name} — Co-founder & CEO of Safock.`,
     url: `${siteConfig.url}/projects`,
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `Projects · ${siteConfig.name}`,
+    description: `Selected projects and case studies by ${siteConfig.name}.`,
+    creator: siteConfig.social.twitter,
   },
 };
 
@@ -23,8 +37,25 @@ const SECTIONS: { label: string; category: "fullstack" | "ai" | "web" }[] = [
 ];
 
 export default function ProjectsPage() {
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: `${siteConfig.url}/projects`,
+      },
+    ],
+  };
   return (
     <main className="bg-bg text-text-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-16 lg:pt-40 lg:pb-20 overflow-hidden bg-noise">
         <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />
@@ -85,7 +116,7 @@ export default function ProjectsPage() {
                     <div className="relative aspect-[16/10] overflow-hidden">
                       <Image
                         src={p.image}
-                        alt={p.title}
+                        alt={`${p.title} project cover — ${p.description.slice(0, 100)}`}
                         fill
                         sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"

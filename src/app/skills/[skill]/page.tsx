@@ -74,11 +74,35 @@ export default async function SkillPage({ params }: PageProps) {
     image: `${siteConfig.url}${skill.icon}`,
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Skills",
+        item: `${siteConfig.url}/skills`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: skill.name,
+        item: `${siteConfig.url}/skills/${skill.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="bg-bg text-text-primary">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Header */}
@@ -100,7 +124,7 @@ export default async function SkillPage({ params }: PageProps) {
               <div className="w-16 h-16 relative flex-shrink-0 rounded-md bg-bg-elevated border border-border p-2">
                 <Image
                   src={skill.icon}
-                  alt={skill.name}
+                  alt={`${skill.name} technology icon`}
                   fill
                   className="object-contain p-2"
                 />
@@ -165,7 +189,7 @@ export default async function SkillPage({ params }: PageProps) {
                       <div className="relative aspect-[16/10] overflow-hidden">
                         <Image
                           src={project.image}
-                          alt={project.title}
+                          alt={`${project.title} project cover — built by Hafiz Ali Ahmed`}
                           fill
                           sizes="(min-width: 640px) 50vw, 100vw"
                           className="object-cover transition-transform duration-700 group-hover:scale-[1.05]"

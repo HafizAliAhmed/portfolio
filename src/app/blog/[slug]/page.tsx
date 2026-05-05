@@ -19,14 +19,27 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.tags,
     alternates: { canonical: `${siteConfig.url}/blog/${post.slug}` },
+    authors: [{ name: siteConfig.author.name, url: siteConfig.url }],
     openGraph: {
       title: post.title,
       description: post.excerpt,
       type: "article",
+      url: `${siteConfig.url}/blog/${post.slug}`,
       publishedTime: post.date,
+      modifiedTime: post.date,
       authors: [siteConfig.author.name],
+      section: post.category,
       tags: post.tags,
+      siteName: `${siteConfig.name} · Writing`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      creator: siteConfig.social.twitter,
+      site: siteConfig.social.twitter,
     },
   };
 }
@@ -39,8 +52,75 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const idx = all.findIndex((p) => p.slug === post.slug);
   const next = all[idx + 1] ?? all[0];
 
+  // Article + BreadcrumbList JSON-LD for rich results and AEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${siteConfig.url}/blog/${post.slug}#article`,
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    inLanguage: "en-US",
+    keywords: post.tags.join(", "),
+    articleSection: post.category,
+    wordCount: (post.content || post.excerpt).split(/\s+/).length,
+    timeRequired: post.readTime,
+    author: { "@id": `${siteConfig.url}/#person` },
+    publisher: { "@id": `${siteConfig.url}/#person` },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/blog/${post.slug}`,
+    },
+    image: {
+      "@type": "ImageObject",
+      url: `${siteConfig.url}/opengraph-image`,
+      width: 1200,
+      height: 630,
+    },
+    url: `${siteConfig.url}/blog/${post.slug}`,
+    isPartOf: {
+      "@type": "Blog",
+      "@id": `${siteConfig.url}/blog`,
+      name: `${siteConfig.name} · Writing`,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: siteConfig.url,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Blog",
+        item: `${siteConfig.url}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: post.title,
+        item: `${siteConfig.url}/blog/${post.slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="bg-bg text-text-primary">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Header */}
       <article className="relative pt-32 pb-20 lg:pt-40 overflow-hidden bg-noise">
         <div className="pointer-events-none absolute inset-0 bg-grid bg-grid-fade" aria-hidden />

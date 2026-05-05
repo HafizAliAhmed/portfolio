@@ -50,7 +50,7 @@ export default function Projects() {
               <div className="lg:col-span-5 relative aspect-[16/10] lg:aspect-auto rounded-md overflow-hidden border border-border bg-bg-elevated">
                 <Image
                   src={p.image}
-                  alt={p.title}
+                  alt={`${p.title} — ${p.description.slice(0, 110)}`}
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"

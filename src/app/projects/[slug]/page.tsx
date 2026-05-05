@@ -60,16 +60,39 @@ export default async function ProjectPage({ params }: PageProps) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${siteConfig.url}/projects/${project.slug}#work`,
     name: project.title,
     description: project.description,
     url: `${siteConfig.url}/projects/${project.slug}`,
     image: `${siteConfig.url}${project.image}`,
-    author: {
-      "@type": "Person",
-      name: siteConfig.author.name,
-      url: siteConfig.url,
-    },
+    author: { "@id": `${siteConfig.url}/#person` },
+    creator: { "@id": `${siteConfig.url}/#person` },
     keywords: project.technologies.join(", "),
+    inLanguage: "en-US",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteConfig.url}/projects/${project.slug}`,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: `${siteConfig.url}/projects`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: project.title,
+        item: `${siteConfig.url}/projects/${project.slug}`,
+      },
+    ],
   };
 
   return (
@@ -77,6 +100,10 @@ export default async function ProjectPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Header */}
@@ -147,7 +174,7 @@ export default async function ProjectPage({ params }: PageProps) {
           <div className="relative aspect-[16/9] rounded-lg border border-border overflow-hidden bg-bg-elevated">
             <Image
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} cover image — case study by Hafiz Ali Ahmed`}
               fill
               priority
               sizes="(min-width: 1280px) 1200px, 100vw"
