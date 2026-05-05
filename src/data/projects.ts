@@ -67,10 +67,10 @@ The role spans architecture, hands-on engineering, and team leadership — cover
     },
     {
         slug: 'governor-house-teaching',
-        title: 'Governor House — Lead Teacher',
+        title: 'Governor House — Teacher/Faculty',
         description:
-            'Lead Teacher at Governor House. 1,500+ students mentored on-site every week across AI-native, cloud, business, and entrepreneurship. 10,000+ students taught in total.',
-        longDescription: `As Lead Teacher at Governor House, I run an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship.
+            'Teacher/Faculty at Governor House. 1,500+ students mentored on-site every week across AI-native, cloud, business, and entrepreneurship. 10,000+ students taught in total.',
+        longDescription: `As Teacher/Faculty at Governor House, I run an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship.
 
 In total, I've mentored more than 10,000 students. The work spans curriculum design, live teaching, mentorship, and milestone-driven cohort delivery — most of those frameworks now run inside Safock's engagement playbooks.`,
         image: '/governor-house-cover.png',

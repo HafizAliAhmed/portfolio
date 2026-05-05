@@ -11,7 +11,7 @@ export const siteConfig = {
     name: 'Hafiz Ali Ahmed',
     title: 'Hafiz Ali Ahmed · Co-founder & CEO of Safock · AI Automations',
     description:
-        'Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI automations company building agentic systems for ambitious teams and developing its own AI-native product. Co-founder & CTO of Functions Global. Lead Teacher at Governor House — mentored 10,000+ students.',
+        'Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI automations company co-founded by Hafiz Ali Ahmed that builds agentic systems for ambitious teams and develops its own AI-native product. Co-founder & CTO of Functions Global. Teacher/Faculty at Governor House — mentored 10,000+ students.',
 
     // Short marketing line
     tagline: 'Co-founder & CEO of Safock. I build AI automations that ship.',
@@ -44,15 +44,14 @@ export const siteConfig = {
 
     governorHouse: {
         name: 'Governor House',
-        role: 'Lead Teacher',
+        role: 'Teacher/Faculty',
         track: 'AI-Native, Cloud, Business & Entrepreneurship',
         weeklyStudents: '1,500+',
         totalMentored: '10,000+',
     },
 
-    // Booking / scheduling link — currently routes to email
-    bookingUrl:
-        'mailto:hafizaliahmed2004@gmail.com?subject=Strategy%20call%20%C2%B7%20Safock',
+    // Booking / scheduling link — Calendly 15-minute discovery call
+    bookingUrl: 'https://calendly.com/safock/15min',
 
     // Social links
     social: {
@@ -91,7 +90,7 @@ export const siteConfig = {
         'AI consulting for founders',
         // Education / authority
         'Governor House AI-Native track',
-        'Governor House Lead Teacher',
+        'Governor House Teacher Faculty',
         'AI educator Pakistan',
         // Topical
         'OpenAI Agents SDK',

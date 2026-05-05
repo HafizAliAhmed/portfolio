@@ -94,7 +94,7 @@ export const blogPosts: BlogPost[] = [
         slug: 'teaching-10000-students-ai',
         title: 'What teaching 10,000+ students about AI taught me',
         excerpt:
-            "Lessons from mentoring 10,000+ students total and currently leading 1,500+ on-site every week as Lead Teacher at Governor House. What students consistently get wrong, what frameworks accelerate them, and what hiring managers should look for.",
+            "Lessons from mentoring 10,000+ students total and currently teaching 1,500+ on-site every week as Teacher/Faculty at Governor House. What students consistently get wrong, what frameworks accelerate them, and what hiring managers should look for.",
         date: '2026-02-26',
         readTime: '10 min read',
         category: 'Education',

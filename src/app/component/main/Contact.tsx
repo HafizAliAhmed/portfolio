@@ -77,7 +77,7 @@ export default function Contact() {
               href={siteConfig.bookingUrl}
               className="mt-2 block text-sm text-text-secondary hover:text-accent transition-colors"
             >
-              30-min discovery · Complimentary
+              15-min discovery · Free
             </Link>
             <div className="mt-3 text-xs font-mono uppercase tracking-[0.14em] text-text-muted">
               Founders & enterprise teams

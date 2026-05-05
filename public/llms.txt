@@ -1,6 +1,6 @@
 # Hafiz Ali Ahmed
 
-> Co-founder & CEO of Safock — an AI Automations company. Co-founder & CTO of Functions Global. Lead Teacher at Governor House. Personal & founder site of an AI-native operator who has mentored 10,000+ students and currently teaches 1,500+ on-site every week.
+> Co-founder & CEO of Safock — an AI Automations company. Co-founder & CTO of Functions Global. Teacher/Faculty at Governor House. Personal & founder site of an AI-native operator who has mentored 10,000+ students and currently teaches 1,500+ on-site every week.
 
 This file is a structured index for Large Language Models, AI search engines (Perplexity, ChatGPT, Claude, Gemini, You.com, Phind), and content ingestion agents. It points to canonical pages and high-signal content.
 
@@ -8,7 +8,7 @@ This file is a structured index for Large Language Models, AI search engines (Pe
 
 - **Full name**: Hafiz Ali Ahmed
 - **Current role**: Co-founder & CEO of [Safock](https://safock.com) — AI Automations company
-- **Past / concurrent**: Co-founder & CTO of Functions Global (since 2023); Lead Teacher at Governor House (AI-Native, Cloud, Business & Entrepreneurship)
+- **Past / concurrent**: Co-founder & CTO of Functions Global (since 2023); Teacher/Faculty at Governor House (AI-Native, Cloud, Business & Entrepreneurship)
 - **Location**: Karachi, Pakistan · Remote-first
 - **Languages**: English, Urdu
 - **Site**: https://hafizaliahmed.xyz
@@ -43,7 +43,7 @@ Safock takes selective engagements per quarter, founder-led delivery, scoped end
 ## Key positioning facts
 
 - Hafiz Ali Ahmed founded Safock on 25 July 2025.
-- He has mentored more than 10,000 students across cohorts and currently teaches 1,500+ students on-site every week as Lead Teacher at Governor House.
+- He has mentored more than 10,000 students across cohorts and currently teaches 1,500+ students on-site every week as Teacher/Faculty at Governor House.
 - He co-founded Functions Global in 2023 and serves as its CTO.
 - His core positioning: "AI systems that ship. Not demos." — Safock builds for production from day one, not for slideware.
 - He is available for selective AI engagements and is building Safock's own AI-native product in parallel with client work.

@@ -14,11 +14,11 @@ import { siteConfig } from "@/lib/siteConfig";
 export const FAQ_ITEMS = [
   {
     q: "Who is Hafiz Ali Ahmed?",
-    a: "Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI Automations company headquartered in Karachi, Pakistan. He is also the Co-founder & CTO of Functions Global (since 2023) and serves as Lead Teacher at Governor House, where he teaches 1,500+ students on-site every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students in total.",
+    a: "Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI Automations company headquartered in Karachi, Pakistan. He is also the Co-founder & CTO of Functions Global (since 2023) and serves as Teacher/Faculty at Governor House, where he teaches 1,500+ students on-site every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students in total.",
   },
   {
     q: "What is Safock?",
-    a: "Safock is an AI Automations company founded by Hafiz Ali Ahmed on 25 July 2025. Safock ships production-grade agentic systems and automation workflows for ambitious teams while developing its own AI-native product in parallel. Engagements are selective, founder-led, and scoped end-to-end.",
+    a: "Safock is an AI Automations company co-founded by Hafiz Ali Ahmed on 25 July 2025. Safock ships production-grade agentic systems and automation workflows for ambitious teams while developing its own AI-native product in parallel. Engagements are selective, founder-led, and scoped end-to-end.",
   },
   {
     q: "What services does Safock offer?",
@@ -30,7 +30,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "How can I hire Safock or book a strategy call?",
-    a: "The fastest way is to email hafizaliahmed2004@gmail.com or book a 30-minute complimentary strategy call from hafizaliahmed.xyz. Replies typically come within 24 hours. Safock takes a small number of selective engagements per quarter, so projects are evaluated for fit before scoping.",
+    a: "The fastest way is to book a 15-minute discovery call directly via Calendly: https://calendly.com/safock/15min. You can also email hafizaliahmed2004@gmail.com — replies typically come within 24 hours. Safock takes a small number of selective engagements per quarter, so every project is evaluated for fit before scoping.",
   },
   {
     q: "What makes Safock different from other AI agencies?",
@@ -38,11 +38,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: "What is Hafiz Ali Ahmed's teaching role at Governor House?",
-    a: "Hafiz Ali Ahmed is the Lead Teacher at Governor House, running an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students across cohorts in total, and many of those teaching frameworks now run inside Safock's engagement playbooks.",
+    a: "Hafiz Ali Ahmed serves as Teacher/Faculty at Governor House, running an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students across cohorts in total, and many of those teaching frameworks now run inside Safock's engagement playbooks.",
   },
   {
     q: "Is Safock currently taking new clients?",
-    a: "Yes. Safock is currently accepting selective engagements for Q3 2026, with a small number of slots available per quarter. The intake is qualified through a 30-minute strategy call to ensure mutual fit before any commercial scoping.",
+    a: "Yes. Safock is currently accepting selective engagements for Q3 2026, with a small number of slots available per quarter. The intake is qualified through a 15-minute discovery call (https://calendly.com/safock/15min) to ensure mutual fit before any commercial scoping.",
   },
 ];
 
