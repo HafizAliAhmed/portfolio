@@ -32,11 +32,8 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-96x96.png',
-    apple: '/apple-touch-icon.png',
-  },
+  // Note: Next.js App Router auto-detects src/app/icon.svg and src/app/apple-icon.svg
+  // and injects the proper <link rel="icon"> + apple-touch-icon tags automatically.
   manifest: '/site.webmanifest',
   keywords: [...siteConfig.keywords],
   authors: [{ name: siteConfig.author.name }],
