@@ -96,31 +96,18 @@ export default function FAQ() {
         </div>
 
         {/* Accordion */}
-        <div
-          className="mt-14 divide-y divide-border border-y border-border"
-          itemScope
-          itemType="https://schema.org/FAQPage"
-        >
+        <div className="mt-14 divide-y divide-border border-y border-border">
           {FAQ_ITEMS.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <article
-                key={item.q}
-                itemScope
-                itemProp="mainEntity"
-                itemType="https://schema.org/Question"
-                className="py-2"
-              >
+              <article key={item.q} className="py-2">
                 <button
                   type="button"
                   aria-expanded={isOpen}
                   onClick={() => setOpenIndex(isOpen ? null : i)}
                   className="w-full flex items-start justify-between gap-6 py-5 text-left group"
                 >
-                  <h3
-                    itemProp="name"
-                    className="text-lg lg:text-xl font-medium tracking-tight text-text-primary leading-snug group-hover:text-accent transition-colors"
-                  >
+                  <h3 className="text-lg lg:text-xl font-medium tracking-tight text-text-primary leading-snug group-hover:text-accent transition-colors">
                     {item.q}
                   </h3>
                   <span
@@ -135,9 +122,6 @@ export default function FAQ() {
                   </span>
                 </button>
                 <div
-                  itemScope
-                  itemProp="acceptedAnswer"
-                  itemType="https://schema.org/Answer"
                   className={`grid transition-all duration-300 ease-out ${
                     isOpen
                       ? "grid-rows-[1fr] opacity-100 pb-6"
@@ -145,10 +129,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p
-                      itemProp="text"
-                      className="text-text-secondary leading-relaxed pr-12"
-                    >
+                    <p className="text-text-secondary leading-relaxed pr-12">
                       {item.a}
                     </p>
                   </div>
