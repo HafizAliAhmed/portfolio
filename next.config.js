@@ -44,6 +44,19 @@ const nextConfig = {
         ],
       },
       {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=86400',
+          },
+        ],
+      },
+      {
         // Cache static assets for 1 year
         source: '/(.*)\\.(ico|png|jpg|jpeg|gif|webp|svg|webm)',
         headers: [

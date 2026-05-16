@@ -50,6 +50,5 @@ export default function robots(): MetadataRoute.Robots {
             { userAgent: 'Mistral-AI', allow: '/' },
         ],
         sitemap: `${siteConfig.url}/sitemap.xml`,
-        host: siteConfig.url,
     };
 }

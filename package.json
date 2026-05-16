@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "generate:sitemap": "tsx scripts/generate-sitemap.ts",
+    "build": "npm run generate:sitemap && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -32,6 +33,7 @@
     "react-intersection-observer": "^9.8.1",
     "tailwindcss": "^3.3.0",
     "three": "^0.172.0",
+    "tsx": "^4.19.4",
     "typescript": "^5"
   }
 }
