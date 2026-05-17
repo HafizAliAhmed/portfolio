@@ -5,6 +5,8 @@
  * `content` field rendered with the prose-blog class on /blog/[slug].
  */
 
+import { siteConfig } from '@/lib/siteConfig';
+
 export type BlogCategory =
     | 'AI'
     | 'Cloud'
@@ -94,11 +96,11 @@ export const blogPosts: BlogPost[] = [
         slug: 'teaching-10000-students-ai',
         title: 'What teaching 10,000+ students about AI taught me',
         excerpt:
-            "Lessons from mentoring 10,000+ students total and currently teaching 1,500+ on-site every week as Teacher/Faculty at Governor House. What students consistently get wrong, what frameworks accelerate them, and what hiring managers should look for.",
+            `Lessons from mentoring 10,000+ students total and currently teaching 1,500+ on-site every week as Teacher/Faculty at the ${siteConfig.governorHouse.name}. What students consistently get wrong, what frameworks accelerate them, and what hiring managers should look for.`,
         date: '2026-02-26',
         readTime: '10 min read',
         category: 'Education',
-        tags: ['Education', 'Career', 'AI', 'Governor House'],
+        tags: ['Education', 'Career', 'AI', siteConfig.governorHouse.name],
         content: `<p>You learn faster by teaching than by building. Here's what 10,000+ students taught me about how to ship AI in production.</p>
 <h2>What students get wrong</h2>
 <p>Almost everyone underestimates the gap between &quot;the model worked once&quot; and &quot;the system runs reliably for thousands of users.&quot; Closing that gap is the entire job.</p>

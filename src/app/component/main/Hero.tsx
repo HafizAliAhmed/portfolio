@@ -66,8 +66,8 @@ export default function Hero() {
             Safock
           </Link>
           , an AI automations company shipping agentic systems for ambitious
-          teams while building our own AI-native product. Teacher/Faculty at
-          Governor House, where I mentor{" "}
+          teams while building our own AI-native product. Teacher/Faculty at the{" "}
+          {siteConfig.governorHouse.name}, where I mentor{" "}
           <span className="text-text-primary font-medium">1,500+ students</span>{" "}
           on-site every week.
         </p>
@@ -112,7 +112,7 @@ export default function Hero() {
             {
               kpi: "1,500+/wk",
               label: "Teaching on-site",
-              sub: "Teacher/Faculty · Governor House",
+              sub: `Teacher/Faculty · ${siteConfig.governorHouse.name}`,
             },
             {
               kpi: "Safock",

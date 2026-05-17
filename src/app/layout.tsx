@@ -159,7 +159,7 @@ export default function RootLayout({
       {
         '@type': 'Occupation',
         name: 'Teacher/Faculty',
-        occupationLocation: { '@type': 'Place', name: 'Governor House' },
+        occupationLocation: { '@type': 'Place', name: siteConfig.governorHouse.name },
         skills:
           'Curriculum Design, AI-Native Development, Cloud, Business, Entrepreneurship',
       },

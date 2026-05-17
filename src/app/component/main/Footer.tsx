@@ -63,7 +63,7 @@ export default function Footer() {
               >
                 {siteConfig.safock.name}
               </Link>
-              {" "}— an AI automations company. Co-founder & CTO of Functions Global. Teacher/Faculty at Governor House.
+              {" "}— an AI automations company. Co-founder & CTO of Functions Global. Teacher/Faculty at the {siteConfig.governorHouse.name}.
             </p>
             <Link
               href={siteConfig.bookingUrl}

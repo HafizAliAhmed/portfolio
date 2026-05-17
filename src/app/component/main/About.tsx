@@ -19,7 +19,7 @@ const FOCUS_AREAS = [
   },
   {
     label: "Education",
-    desc: "Teacher/Faculty at Governor House. 1,500+ students on-site weekly across AI-native, cloud, business, and entrepreneurship.",
+    desc: `Teacher/Faculty at the ${siteConfig.governorHouse.name}. 1,500+ students on-site weekly across AI-native, cloud, business, and entrepreneurship.`,
   },
 ];
 
@@ -79,7 +79,7 @@ export default function About() {
                 <span className="text-text-primary">10,000+ students</span> in
                 total and currently serve as{" "}
                 <span className="text-text-primary">Teacher/Faculty</span> at{" "}
-                <span className="text-text-primary">Governor House</span>,
+                <span className="text-text-primary">{siteConfig.governorHouse.name}</span>,
                 where I instruct{" "}
                 <span className="text-text-primary">1,500+ students</span>{" "}
                 on-site every week across AI-native development, cloud

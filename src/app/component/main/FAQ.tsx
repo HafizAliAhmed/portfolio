@@ -14,7 +14,7 @@ import { siteConfig } from "@/lib/siteConfig";
 export const FAQ_ITEMS = [
   {
     q: "Who is Hafiz Ali Ahmed?",
-    a: "Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI Automations company headquartered in Karachi, Pakistan. He is also the Co-founder & CTO of Functions Global (since 2023) and serves as Teacher/Faculty at Governor House, where he teaches 1,500+ students on-site every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students in total.",
+    a: `Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI Automations company headquartered in Karachi, Pakistan. He is also the Co-founder & CTO of Functions Global (since 2023) and serves as Teacher/Faculty at the ${siteConfig.governorHouse.name}, where he teaches 1,500+ students on-site every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students in total.`,
   },
   {
     q: "What is Safock?",
@@ -37,8 +37,8 @@ export const FAQ_ITEMS = [
     a: "Safock builds for production from day one. The thesis is simple — most AI work fails because it stops at the demo. Every Safock engagement is led personally by Hafiz Ali Ahmed, scoped tightly, designed with evaluations and observability built in, and shipped end-to-end. No middlemen, no slideware, no proof-of-concept tax.",
   },
   {
-    q: "What is Hafiz Ali Ahmed's teaching role at Governor House?",
-    a: "Hafiz Ali Ahmed serves as Teacher/Faculty at Governor House, running an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students across cohorts in total, and many of those teaching frameworks now run inside Safock's engagement playbooks.",
+    q: `What is Hafiz Ali Ahmed's teaching role at the ${siteConfig.governorHouse.name}?`,
+    a: `Hafiz Ali Ahmed serves as Teacher/Faculty at the ${siteConfig.governorHouse.name}, running an on-site program that currently serves 1,500+ students every week across AI-native development, cloud architecture, business, and entrepreneurship. He has mentored more than 10,000 students across cohorts in total, and many of those teaching frameworks now run inside Safock's engagement playbooks.`,
   },
   {
     q: "Is Safock currently taking new clients?",

@@ -11,7 +11,7 @@ export const siteConfig = {
     name: 'Hafiz Ali Ahmed',
     title: 'Hafiz Ali Ahmed · Co-founder & CEO of Safock · AI Automations',
     description:
-        'Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI automations company co-founded by Hafiz Ali Ahmed that builds agentic systems for ambitious teams and develops its own AI-native product. Co-founder & CTO of Functions Global. Teacher/Faculty at Governor House — mentored 10,000+ students.',
+        'Hafiz Ali Ahmed is the Co-founder & CEO of Safock, an AI automations company co-founded by Hafiz Ali Ahmed that builds agentic systems for ambitious teams and develops its own AI-native product. Co-founder & CTO of Functions Global. Teacher/Faculty at the Governor Initiative of PM Youth Program — mentored 10,000+ students.',
 
     // Short marketing line
     tagline: 'Co-founder & CEO of Safock. I build AI automations that ship.',
@@ -43,7 +43,7 @@ export const siteConfig = {
     },
 
     governorHouse: {
-        name: 'Governor House',
+        name: 'Governor Initiative of PM Youth Program',
         role: 'Teacher/Faculty',
         track: 'AI-Native, Cloud, Business & Entrepreneurship',
         weeklyStudents: '1,500+',
@@ -89,8 +89,8 @@ export const siteConfig = {
         'Agentic workflows',
         'AI consulting for founders',
         // Education / authority
-        'Governor House AI-Native track',
-        'Governor House Teacher Faculty',
+        'Governor Initiative of PM Youth Program',
+        'PM Youth Program AI educator',
         'AI educator Pakistan',
         // Topical
         'OpenAI Agents SDK',
