@@ -49,6 +49,9 @@ export default function robots(): MetadataRoute.Robots {
             { userAgent: 'YouBot', allow: '/' },               // You.com
             { userAgent: 'Mistral-AI', allow: '/' },
         ],
-        sitemap: `${siteConfig.url}/sitemap.xml`,
+        sitemap: [
+            `${siteConfig.url}/sitemap.xml`,
+            `${siteConfig.url}/sitemap-main.xml`,
+        ],
     };
 }
