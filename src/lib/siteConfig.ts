@@ -58,6 +58,7 @@ export const siteConfig = {
         twitter: '@hafizaliahmed9',
         twitterUrl: 'https://twitter.com/hafizaliahmed9',
         linkedin: 'https://www.linkedin.com/in/hafizaliahmed',
+        instagram: 'https://www.instagram.com/hafizaliahmed.ai/',
         github: 'https://github.com/HafizAliAhmed',
         medium: 'https://medium.com/@hafizaliahmed2004',
         safock: 'https://safock.com',

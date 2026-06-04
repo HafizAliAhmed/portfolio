@@ -130,6 +130,7 @@ export default function RootLayout({
     sameAs: [
       siteConfig.social.twitterUrl,
       siteConfig.social.linkedin,
+      siteConfig.social.instagram,
       siteConfig.social.github,
       siteConfig.social.medium,
       siteConfig.safock.url,

@@ -20,6 +20,7 @@ const FOOTER_NAV = [
       { label: "Book a call", href: siteConfig.bookingUrl },
       { label: "Email", href: `mailto:${siteConfig.author.email}` },
       { label: "LinkedIn", href: siteConfig.social.linkedin, external: true },
+      { label: "Instagram", href: siteConfig.social.instagram, external: true },
       { label: "X / Twitter", href: siteConfig.social.twitterUrl, external: true },
       { label: "GitHub", href: siteConfig.social.github, external: true },
       { label: "Medium", href: siteConfig.social.medium, external: true },

@@ -73,6 +73,15 @@ export default function Navbar() {
               GitHub
             </Link>
             <Link
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden lg:inline-flex btn-ghost text-xs"
+              aria-label="Instagram"
+            >
+              Instagram
+            </Link>
+            <Link
               href={siteConfig.bookingUrl}
               className="hidden sm:inline-flex btn-primary text-sm py-2 px-4"
             >
@@ -142,9 +151,10 @@ export default function Navbar() {
               >
                 Book a call <ArrowUpRight className="w-4 h-4" />
               </Link>
-              <div className="flex items-center justify-between text-sm text-text-secondary pt-4 border-t border-border">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-3 text-sm text-text-secondary pt-4 border-t border-border">
                 <Link href={siteConfig.social.github} target="_blank" rel="noopener noreferrer">GitHub</Link>
                 <Link href={siteConfig.social.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</Link>
+                <Link href={siteConfig.social.instagram} target="_blank" rel="noopener noreferrer">Instagram</Link>
                 <Link href={siteConfig.social.twitterUrl} target="_blank" rel="noopener noreferrer">X</Link>
                 <Link href={siteConfig.social.medium} target="_blank" rel="noopener noreferrer">Medium</Link>
               </div>

@@ -114,6 +114,15 @@ export default function Contact() {
               <ArrowUpRight className="w-3.5 h-3.5 btn-icon-arrow" strokeWidth={2} />
             </Link>
             <Link
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost"
+            >
+              Instagram
+              <ArrowUpRight className="w-3.5 h-3.5 btn-icon-arrow" strokeWidth={2} />
+            </Link>
+            <Link
               href={siteConfig.social.twitterUrl}
               target="_blank"
               rel="noopener noreferrer"
