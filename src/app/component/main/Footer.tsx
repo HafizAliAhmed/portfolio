@@ -32,7 +32,6 @@ const FOOTER_NAV = [
       { label: "All projects", href: "/projects" },
       { label: "All skills", href: "/skills" },
       { label: "Sitemap", href: "/sitemap.xml" },
-      { label: "Privacy", href: "/privacy" },
     ],
   },
 ];

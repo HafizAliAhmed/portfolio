@@ -32,6 +32,7 @@ const config: Config = {
           soft: 'var(--accent-soft)',
           glow: 'var(--accent-glow)',
         },
+        'on-accent': 'var(--on-accent)',
       },
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],

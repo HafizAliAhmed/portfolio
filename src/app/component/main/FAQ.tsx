@@ -5,11 +5,7 @@ import { Plus, Minus } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 
 /**
- * FAQ section + FAQPage JSON-LD.
- *
- * Each Q&A is written to be quotable verbatim by AI search engines (AEO/GEO).
- * Answers are declarative, fact-rich, and include the brand keywords without
- * keyword-stuffing. Edit the FAQ_ITEMS array to update content.
+ * FAQ content shared by the accordion UI.
  */
 export const FAQ_ITEMS = [
   {
@@ -49,27 +45,8 @@ export const FAQ_ITEMS = [
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: FAQ_ITEMS.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.a,
-      },
-    })),
-  };
-
   return (
     <section id="faq" className="relative py-28 lg:py-36 border-t border-border">
-      {/* JSON-LD for AEO/GEO and Google rich results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
       <div className="max-w-container mx-auto px-5 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-10 items-end">
           <div className="lg:col-span-7">

@@ -1,3 +1,19 @@
+const isDevelopment = process.env.NODE_ENV !== 'production';
+
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "connect-src 'self'" + (isDevelopment ? ' ws:' : ''),
+  "font-src 'self' data:",
+  "form-action 'self'",
+  "frame-ancestors 'none'",
+  "img-src 'self' data: blob:",
+  "object-src 'none'",
+  "script-src 'self' 'unsafe-inline'" + (isDevelopment ? " 'unsafe-eval'" : ''),
+  "style-src 'self' 'unsafe-inline'",
+  ...(isDevelopment ? [] : ['upgrade-insecure-requests']),
+].join('; ');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -21,7 +37,7 @@ const nextConfig = {
   // Enable experimental features for better performance
   experimental: {
     // Optimize package imports for faster builds
-    optimizePackageImports: ['react-icons', 'framer-motion', 'lucide-react'],
+    optimizePackageImports: ['lucide-react'],
   },
   // Headers for security and caching
   async headers() {
@@ -38,8 +54,20 @@ const nextConfig = {
             value: 'nosniff',
           },
           {
+            key: 'Content-Security-Policy',
+            value: contentSecurityPolicy,
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'browsing-topics=(), camera=(), geolocation=(), microphone=(), payment=(), usb=()',
+          },
+          {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            value: 'strict-origin-when-cross-origin',
           },
         ],
       },

@@ -262,10 +262,9 @@ export default function RootLayout({
     description: siteConfig.description,
     mainEntity: { '@id': `${siteConfig.url}/#person` },
     dateCreated: '2026-01-01T00:00:00.000Z',
-    dateModified: new Date().toISOString(),
   };
 
-  // WebSite with SearchAction (sitelinks search box)
+  // WebSite entity for the canonical site identity
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
@@ -275,14 +274,6 @@ export default function RootLayout({
     description: siteConfig.description,
     publisher: { '@id': `${siteConfig.url}/#person` },
     inLanguage: 'en-US',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${siteConfig.url}/?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 
   return (

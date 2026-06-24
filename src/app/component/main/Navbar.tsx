@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/lib/siteConfig";
 
@@ -15,6 +15,9 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const menuDialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -22,6 +25,54 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const menuButton = menuButtonRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const focusFrame = window.requestAnimationFrame(() => {
+      closeButtonRef.current?.focus();
+    });
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !menuDialogRef.current) return;
+
+      const focusable = Array.from(
+        menuDialogRef.current.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((element) => element.getClientRects().length > 0);
+
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      window.cancelAnimationFrame(focusFrame);
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = previousOverflow;
+      menuButton?.focus();
+    };
+  }, [open]);
 
   return (
     <>
@@ -89,10 +140,14 @@ export default function Navbar() {
               <ArrowUpRight className="w-4 h-4 btn-icon-arrow" strokeWidth={2} />
             </Link>
             <button
+              ref={menuButtonRef}
               type="button"
               onClick={() => setOpen(true)}
               className="md:hidden p-2 rounded-full border border-border text-text-primary"
               aria-label="Open menu"
+              aria-expanded={open}
+              aria-controls="mobile-navigation"
+              aria-haspopup="dialog"
             >
               <Menu className="w-5 h-5" />
             </button>
@@ -102,10 +157,18 @@ export default function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="fixed inset-0 z-[60] md:hidden">
+        <div
+          id="mobile-navigation"
+          ref={menuDialogRef}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+          className="fixed inset-0 z-[60] md:hidden"
+        >
           <div
             className="absolute inset-0 bg-bg/80 backdrop-blur-md"
             onClick={() => setOpen(false)}
+            aria-hidden="true"
           />
           <div className="relative h-full flex flex-col p-6">
             <div className="flex items-center justify-between">
@@ -122,6 +185,7 @@ export default function Navbar() {
                 </span>
               </Link>
               <button
+                ref={closeButtonRef}
                 type="button"
                 onClick={() => setOpen(false)}
                 className="p-2 rounded-full border border-border"
